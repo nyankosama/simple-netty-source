@@ -1,0 +1,6 @@
+/target/
+/doc/
+/jar/
+/license/
+/.idea/
+/*.iml
