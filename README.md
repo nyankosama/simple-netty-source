@@ -36,11 +36,11 @@
 
 ###关键源码阅读路径
 
-* new NioServerSocketChannelFactory() ====> new NioWorkerPool() ====> AbstractNioWorkerPool.init() ====> AbstractNioWorkerPool.newWorker(Executor) ====> NioWorkerPool.createWorker(Executor) ====> new AbstractNioSelector(Executor, ThreadNameDeterminer) ====> AbstractNioSelector.openSelector(ThreadNameDeterminer)
-* new NioServerSocketChannelFactory() ====> new NioServerBossPool() ====> NioServerBossPool.init() ====> AbstractNioBossPool.newBoss(Executor) ====> NioServerBossPool.newBoss(Executor) ====> new NioServerBoss(Executor, ThreadNameDeterminer) ====> AbstractNioSelector.openSelector(ThreadNameDeterminer)
-* AbstractNioSelector.run() ====> AbstractNioSelector.process()
-* AbstractNioSelector.run() ====> NioServerBoss.process()
-* AbstractNioSelector.run() ====> AbstractNioSelector.processTaskQueue()
+* **new NioServerSocketChannelFactory()** ====> **new NioWorkerPool()** ====> **AbstractNioWorkerPool.init()** ====> **AbstractNioWorkerPool.newWorker(Executor)** ====> **NioWorkerPool.createWorker(Executor)** ====> **new AbstractNioSelector(Executor, ThreadNameDeterminer)** ====> **AbstractNioSelector.openSelector(ThreadNameDeterminer)**
+* **new NioServerSocketChannelFactory()** ====> **new NioServerBossPool()** ====> **NioServerBossPool.init()** ====> **AbstractNioBossPool.newBoss(Executor)** ====> **NioServerBossPool.newBoss(Executor)** ====> **new NioServerBoss(Executor, ThreadNameDeterminer)** ====> **AbstractNioSelector.openSelector(ThreadNameDeterminer)**
+* **AbstractNioSelector.run()** ====> **AbstractNioSelector.process()**
+* **AbstractNioSelector.run()** ====> **NioServerBoss.process()**
+* **AbstractNioSelector.run()** ====> **AbstractNioSelector.processTaskQueue()**
 
 ###注意事项
 
