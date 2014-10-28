@@ -54,6 +54,10 @@
 * ChannelBuffer的实现主要去看ChannelBuffer -> AbstractChannelBuffer -> HeapChannelBuffer -> BigEndianHeapChannelBuffer这条线即可
 * 善于在关键路径运用断点查看调用栈，一目了然
 
+##License
+Apache License v2
+
+
 
 
 
