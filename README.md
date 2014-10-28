@@ -36,11 +36,11 @@
 
 ###关键源码阅读路径
 
-* new NioServerSocketChannelFactory() -> new NioWorkerPool() -> AbstractNioWorkerPool.init() -> AbstractNioWorkerPool.newWorker(Executor) -> NioWorkerPool.createWorker(Executor) -> new AbstractNioSelector(Executor, ThreadNameDeterminer) -> AbstractNioSelector.openSelector(ThreadNameDeterminer)
-* new NioServerSocketChannelFactory() -> new NioServerBossPool() -> NioServerBossPool.init() -> AbstractNioBossPool.newBoss(Executor) -> NioServerBossPool.newBoss(Executor) -> new NioServerBoss(Executor, ThreadNameDeterminer) -> AbstractNioSelector.openSelector(ThreadNameDeterminer)
-* AbstractNioSelector.run() -> AbstractNioSelector.process()
-* AbstractNioSelector.run() -> NioServerBoss.process()
-* AbstractNioSelector.run() -> AbstractNioSelector.processTaskQueue()
+* new NioServerSocketChannelFactory() ====> new NioWorkerPool() ====> AbstractNioWorkerPool.init() ====> AbstractNioWorkerPool.newWorker(Executor) ====> NioWorkerPool.createWorker(Executor) ====> new AbstractNioSelector(Executor, ThreadNameDeterminer) ====> AbstractNioSelector.openSelector(ThreadNameDeterminer)
+* new NioServerSocketChannelFactory() ====> new NioServerBossPool() ====> NioServerBossPool.init() ====> AbstractNioBossPool.newBoss(Executor) ====> NioServerBossPool.newBoss(Executor) ====> new NioServerBoss(Executor, ThreadNameDeterminer) ====> AbstractNioSelector.openSelector(ThreadNameDeterminer)
+* AbstractNioSelector.run() ====> AbstractNioSelector.process()
+* AbstractNioSelector.run() ====> NioServerBoss.process()
+* AbstractNioSelector.run() ====> AbstractNioSelector.processTaskQueue()
 
 ###注意事项
 
@@ -53,3 +53,11 @@
 * buffer包中为ChannelBuffer的相关实现，在NioWorker中的process方法的read调用里面可以清晰看到ChannelBuffer的创建和分发的upStream的具体过程。
 * ChannelBuffer的实现主要去看ChannelBuffer -> AbstractChannelBuffer -> HeapChannelBuffer -> BigEndianHeapChannelBuffer这条线即可
 * 善于在关键路径运用断点查看调用栈，一目了然
+
+
+
+
+
+
+
+
