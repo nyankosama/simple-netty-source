@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by hlr@superid.cn on 2014/8/15.
  */
-public class PingPongServer {
+public class EchoServer {
 
     public void run() throws Exception{
         // Configure the server.
@@ -25,7 +25,7 @@ public class PingPongServer {
         // Set up the pipeline factory.
         bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
             public ChannelPipeline getPipeline() throws Exception {
-                return Channels.pipeline(new PingPongServerHandler());
+                return Channels.pipeline(new EchoServerHandler());
             }
         });
 
@@ -34,6 +34,6 @@ public class PingPongServer {
     }
 
     public static void main(String args[]) throws Exception {
-        new PingPongServer().run();
+        new EchoServer().run();
     }
 }

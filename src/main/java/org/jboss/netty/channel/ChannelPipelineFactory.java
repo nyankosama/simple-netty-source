@@ -17,7 +17,6 @@ package org.jboss.netty.channel;
 
 import org.jboss.netty.bootstrap.Bootstrap;
 import org.jboss.netty.bootstrap.ClientBootstrap;
-import org.jboss.netty.bootstrap.ConnectionlessBootstrap;
 
 /**
  * Creates a new {@link ChannelPipeline} for a new {@link Channel}.

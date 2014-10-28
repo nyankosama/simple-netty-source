@@ -17,7 +17,6 @@ package org.jboss.netty.channel;
 
 import java.util.concurrent.Executor;
 
-import org.jboss.netty.handler.execution.ExecutionHandler;
 
 
 /**

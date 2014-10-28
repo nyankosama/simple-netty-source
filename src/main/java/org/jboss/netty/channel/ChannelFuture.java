@@ -18,7 +18,6 @@ package org.jboss.netty.channel;
 import java.util.concurrent.TimeUnit;
 
 import org.jboss.netty.bootstrap.ClientBootstrap;
-import org.jboss.netty.handler.execution.ExecutionHandler;
 
 /**
  * The result of an asynchronous {@link Channel} I/O operation.

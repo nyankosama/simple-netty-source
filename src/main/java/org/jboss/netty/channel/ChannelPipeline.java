@@ -22,9 +22,6 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.handler.execution.ExecutionHandler;
-import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
-import org.jboss.netty.handler.ssl.SslHandler;
 
 
 /**

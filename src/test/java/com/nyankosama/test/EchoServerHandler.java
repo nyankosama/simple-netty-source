@@ -8,7 +8,7 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 /**
  * Created by hlr@superid.cn on 2014/8/15.
  */
-public class PingPongServerHandler extends SimpleChannelUpstreamHandler {
+public class EchoServerHandler extends SimpleChannelUpstreamHandler {
 
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {

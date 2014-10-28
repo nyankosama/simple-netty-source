@@ -17,7 +17,6 @@ package org.jboss.netty.channel;
 
 import java.util.concurrent.Executor;
 
-import org.jboss.netty.channel.group.ChannelGroup;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.util.ExternalResourceReleasable;
 

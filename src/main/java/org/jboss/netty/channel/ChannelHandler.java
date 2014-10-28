@@ -16,7 +16,6 @@
 package org.jboss.netty.channel;
 
 import org.jboss.netty.bootstrap.Bootstrap;
-import org.jboss.netty.channel.group.ChannelGroup;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
