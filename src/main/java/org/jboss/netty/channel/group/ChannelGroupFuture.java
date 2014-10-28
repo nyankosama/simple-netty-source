@@ -24,7 +24,6 @@ import org.jboss.netty.channel.ChannelHandler;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.MessageEvent;
-import org.jboss.netty.handler.execution.ExecutionHandler;
 
 /**
  * The result of an asynchronous {@link ChannelGroup} operation.
@@ -69,7 +68,7 @@ import org.jboss.netty.handler.execution.ExecutionHandler;
  * <h3>Do not call {@link #await()} inside {@link ChannelHandler}</h3>
  * <p>
  * The event handler methods in {@link ChannelHandler} is often called by
- * an I/O thread unless an {@link ExecutionHandler} is in the
+ * an I/O thread unless an {@link } is in the
  * {@link ChannelPipeline}.  If {@link #await()} is called by an event handler
  * method, which is called by the I/O thread, the I/O operation it is waiting
  * for might never be complete because {@link #await()} can block the I/O
