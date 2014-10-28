@@ -1,6 +1,6 @@
 #Trivail Netty Source
 
-本项目是netty.3.9.4.Final源码的精简版本，屏蔽掉netty中不必要的功能，只保留了核心模块，方便进行源码学习。
+本项目是netty.3.9.4.Final源码的精简版本，删除掉netty中不必要的功能，只保留了核心模块，方便进行源码学习。
 
 ##模块变更
 
@@ -34,6 +34,16 @@
 
 由于netty模块内部的对象协作关系较为复杂，所以这里推荐从最为简单的EchoServer作为入口阅读相关源码。（Example代码已经附在了test中）
 
+###关键源码阅读路径
+
+* new NioServerSocketChannelFactory() -> new NioWorkerPool() -> AbstractNioWorkerPool.init() -> AbstractNioWorkerPool.newWorker(Executor) -> NioWorkerPool.createWorker(Executor) -> new AbstractNioSelector(Executor, ThreadNameDeterminer) -> AbstractNioSelector.openSelector(ThreadNameDeterminer)
+* new NioServerSocketChannelFactory() -> new NioServerBossPool() -> NioServerBossPool.init() -> AbstractNioBossPool.newBoss(Executor) -> NioServerBossPool.newBoss(Executor) -> new NioServerBoss(Executor, ThreadNameDeterminer) -> AbstractNioSelector.openSelector(ThreadNameDeterminer)
+* AbstractNioSelector.run() -> AbstractNioSelector.process()
+* AbstractNioSelector.run() -> NioServerBoss.process()
+* AbstractNioSelector.run() -> AbstractNioSelector.processTaskQueue()
+
+###注意事项
+
 在阅读过程中需要注意以下几点：
 
 * NioWorker和NioServerBoss分别是Worker和Boss的线程runnable实现，Netty的核心nio网络处理代码就在这两个类以及其相关父类中
@@ -42,11 +52,4 @@
 * DefaultChannelPipeline实现了ChannelPipeline，其中以链表维护具体的handler列表。具体事件的分发分为两个方向，即upStream和downStream，前者代表read事件的分发，后者代表write事件的分发
 * buffer包中为ChannelBuffer的相关实现，在NioWorker中的process方法的read调用里面可以清晰看到ChannelBuffer的创建和分发的upStream的具体过程。
 * ChannelBuffer的实现主要去看ChannelBuffer -> AbstractChannelBuffer -> HeapChannelBuffer -> BigEndianHeapChannelBuffer这条线即可
-
-
-
-
-
-
-
-
+* 善于在关键路径运用断点查看调用栈，一目了然
