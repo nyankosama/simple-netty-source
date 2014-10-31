@@ -1,6 +1,9 @@
-#Trivail Netty Source
+#Simple Netty Source
 
 本项目是netty.3.9.4.Final源码的精简版本，删除掉netty中不必要的功能，只保留了核心模块，方便进行源码学习。
+
+//TODO
+* 进一步以方法为粒度对源码做精简（目前仅以模块粒度进行源码精简）
 
 ##模块变更
 
