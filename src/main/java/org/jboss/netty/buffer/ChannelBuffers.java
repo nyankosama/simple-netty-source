@@ -854,19 +854,6 @@ public final class ChannelBuffers {
     }
 
     /**
-     * Creates a read-only buffer which disallows any modification operations
-     * on the specified {@code buffer}.  The new buffer has the same
-     * {@code readerIndex} and {@code writerIndex} with the specified
-     * {@code buffer}.
-     */
-    public static ChannelBuffer unmodifiableBuffer(ChannelBuffer buffer) {
-        if (buffer instanceof ReadOnlyChannelBuffer) {
-            buffer = ((ReadOnlyChannelBuffer) buffer).unwrap();
-        }
-        return new ReadOnlyChannelBuffer(buffer);
-    }
-
-    /**
      * Create a {@link ChannelBuffer} from the given <a href="http://en.wikipedia.org/wiki/Hex_dump">hex dump</a>
      */
     public static ChannelBuffer hexDump(String hexString) {
