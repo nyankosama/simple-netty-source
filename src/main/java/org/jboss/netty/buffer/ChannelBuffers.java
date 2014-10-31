@@ -142,33 +142,7 @@ public final class ChannelBuffers {
         }
     }
 
-    /**
-     * Creates a new big-endian direct buffer with the specified
-     * {@code capacity}.  The new buffer's {@code readerIndex} and
-     * {@code writerIndex} are {@code 0}.
-     */
-    public static ChannelBuffer directBuffer(int capacity) {
-        return directBuffer(BIG_ENDIAN, capacity);
-    }
 
-    /**
-     * Creates a new direct buffer with the specified {@code endianness} and
-     * {@code capacity}.  The new buffer's {@code readerIndex} and
-     * {@code writerIndex} are {@code 0}.
-     */
-    public static ChannelBuffer directBuffer(ByteOrder endianness, int capacity) {
-        if (endianness == null) {
-            throw new NullPointerException("endianness");
-        }
-        if (capacity == 0) {
-            return EMPTY_BUFFER;
-        }
-
-        ChannelBuffer buffer = new ByteBufferBackedChannelBuffer(
-                ByteBuffer.allocateDirect(capacity).order(endianness));
-        buffer.clear();
-        return buffer;
-    }
 
     /**
      * Creates a new big-endian dynamic buffer whose estimated data length is
@@ -296,23 +270,6 @@ public final class ChannelBuffers {
             } else {
                 return new SlicedChannelBuffer(wrappedBuffer(endianness, array), offset, length);
             }
-        }
-    }
-
-    /**
-     * Creates a new buffer which wraps the specified NIO buffer's current
-     * slice.  A modification on the specified buffer's content will be
-     * visible to the returned buffer.
-     */
-    public static ChannelBuffer wrappedBuffer(ByteBuffer buffer) {
-        if (!buffer.hasRemaining()) {
-            return EMPTY_BUFFER;
-        }
-        if (buffer.hasArray()) {
-            return wrappedBuffer(
-                    buffer.order(), buffer.array(), buffer.arrayOffset() + buffer.position(), buffer.remaining());
-        } else {
-            return new ByteBufferBackedChannelBuffer(buffer);
         }
     }
 
