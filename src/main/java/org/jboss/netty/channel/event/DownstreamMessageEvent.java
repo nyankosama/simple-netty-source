@@ -18,7 +18,7 @@ package org.jboss.netty.channel.event;
 import java.net.SocketAddress;
 
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.util.internal.StringUtil;
 
 /**

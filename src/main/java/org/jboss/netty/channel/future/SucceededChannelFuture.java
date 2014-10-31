@@ -13,11 +13,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.future;
+
+import org.jboss.netty.channel.Channel;
 
 /**
  * The {@link CompleteChannelFuture} which is succeeded already.  It is
- * recommended to use {@link Channels#succeededFuture(Channel)} instead of
+ * recommended to use {@link org.jboss.netty.channel.Channels#succeededFuture(org.jboss.netty.channel.Channel)} instead of
  * calling the constructor of this future.
  */
 public class SucceededChannelFuture extends CompleteChannelFuture {
@@ -25,7 +27,7 @@ public class SucceededChannelFuture extends CompleteChannelFuture {
     /**
      * Creates a new instance.
      *
-     * @param channel the {@link Channel} associated with this future
+     * @param channel the {@link org.jboss.netty.channel.Channel} associated with this future
      */
     public SucceededChannelFuture(Channel channel) {
         super(channel);

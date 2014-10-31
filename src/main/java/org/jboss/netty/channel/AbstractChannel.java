@@ -15,6 +15,10 @@
  */
 package org.jboss.netty.channel;
 
+import org.jboss.netty.channel.future.ChannelFuture;
+import org.jboss.netty.channel.future.DefaultChannelFuture;
+import org.jboss.netty.channel.future.FailedChannelFuture;
+import org.jboss.netty.channel.future.SucceededChannelFuture;
 import org.jboss.netty.util.internal.ConcurrentHashMap;
 
 import java.net.SocketAddress;
@@ -127,14 +131,14 @@ public abstract class AbstractChannel implements Channel {
     }
 
     /**
-     * Returns the cached {@link SucceededChannelFuture} instance.
+     * Returns the cached {@link org.jboss.netty.channel.future.SucceededChannelFuture} instance.
      */
     protected ChannelFuture getSucceededFuture() {
         return succeededFuture;
     }
 
     /**
-     * Returns the {@link FailedChannelFuture} whose cause is an
+     * Returns the {@link org.jboss.netty.channel.future.FailedChannelFuture} whose cause is an
      * {@link UnsupportedOperationException}.
      */
     protected ChannelFuture getUnsupportedOperationFuture() {

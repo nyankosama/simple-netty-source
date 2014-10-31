@@ -13,14 +13,15 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.future;
 
 import java.util.concurrent.TimeUnit;
 
 import org.jboss.netty.bootstrap.ClientBootstrap;
+import org.jboss.netty.channel.Channel;
 
 /**
- * The result of an asynchronous {@link Channel} I/O operation.
+ * The result of an asynchronous {@link org.jboss.netty.channel.Channel} I/O operation.
  * <p>
  * All I/O operations in Netty are asynchronous.  It means any I/O calls will
  * return immediately with no guarantee that the requested I/O operation has
@@ -81,18 +82,18 @@ import org.jboss.netty.bootstrap.ClientBootstrap;
  * expensive cost of inter-thread notification.  Moreover, there's a chance of
  * dead lock in a particular circumstance, which is described below.
  *
- * <h3>Do not call {@link #await()} inside {@link ChannelHandler}</h3>
+ * <h3>Do not call {@link #await()} inside {@link org.jboss.netty.channel.ChannelHandler}</h3>
  * <p>
- * The event handler methods in {@link ChannelHandler} is often called by
+ * The event handler methods in {@link org.jboss.netty.channel.ChannelHandler} is often called by
  * an I/O thread unless an {@link ExecutionHandler} is in the
- * {@link ChannelPipeline}.  If {@link #await()} is called by an event handler
+ * {@link org.jboss.netty.channel.ChannelPipeline}.  If {@link #await()} is called by an event handler
  * method, which is called by the I/O thread, the I/O operation it is waiting
  * for might never be complete because {@link #await()} can block the I/O
  * operation it is waiting for, which is a dead lock.
  * <pre>
  * // BAD - NEVER DO THIS
  * {@code @Override}
- * public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
+ * public void messageReceived({@link org.jboss.netty.channel.ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *     if (e.getMessage() instanceof GoodByeMessage) {
  *         {@link ChannelFuture} future = e.getChannel().close();
  *         future.awaitUninterruptibly();
@@ -103,7 +104,7 @@ import org.jboss.netty.bootstrap.ClientBootstrap;
  *
  * // GOOD
  * {@code @Override}
- * public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
+ * public void messageReceived({@link org.jboss.netty.channel.ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *     if (e.getMessage() instanceof GoodByeMessage) {
  *         {@link ChannelFuture} future = e.getChannel().close();
  *         future.addListener(new {@link ChannelFutureListener}() {
@@ -164,7 +165,7 @@ import org.jboss.netty.bootstrap.ClientBootstrap;
  * </pre>
  *
  * @apiviz.landmark
- * @apiviz.owns org.jboss.netty.channel.ChannelFutureListener - - notifies
+ * @apiviz.owns org.jboss.netty.channel.future.ChannelFutureListener - - notifies
  */
 public interface ChannelFuture {
 

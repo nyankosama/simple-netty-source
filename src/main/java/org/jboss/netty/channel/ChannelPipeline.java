@@ -23,6 +23,7 @@ import java.util.NoSuchElementException;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.event.ChannelEvent;
+import org.jboss.netty.channel.future.ChannelFuture;
 
 
 /**

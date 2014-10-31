@@ -18,7 +18,7 @@ package org.jboss.netty.bootstrap;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelConfig;
 import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.ChannelHandler;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.exception.ChannelPipelineException;

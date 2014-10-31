@@ -16,7 +16,7 @@
 package org.jboss.netty.channel.socket.nio;
 
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 
 import java.nio.channels.Selector;
 

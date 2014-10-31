@@ -13,8 +13,9 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.future;
 
+import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
@@ -29,7 +30,7 @@ import static java.util.concurrent.TimeUnit.*;
 
 /**
  * The default {@link ChannelFuture} implementation.  It is recommended to
- * use {@link Channels#future(Channel)} and {@link Channels#future(Channel, boolean)}
+ * use {@link org.jboss.netty.channel.Channels#future(org.jboss.netty.channel.Channel)} and {@link org.jboss.netty.channel.Channels#future(org.jboss.netty.channel.Channel, boolean)}
  * to create a new {@link ChannelFuture} rather than calling the constructor
  * explicitly.
  */

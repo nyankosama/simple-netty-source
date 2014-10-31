@@ -16,7 +16,7 @@
 package org.jboss.netty.channel.event;
 
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 
 import static org.jboss.netty.channel.Channels.*;
 

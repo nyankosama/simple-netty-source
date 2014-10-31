@@ -15,6 +15,8 @@
  */
 package org.jboss.netty.channel;
 
+import org.jboss.netty.channel.future.ChannelFuture;
+
 import java.net.SocketAddress;
 
 /**

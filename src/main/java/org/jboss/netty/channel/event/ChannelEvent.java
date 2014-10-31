@@ -17,7 +17,7 @@ package org.jboss.netty.channel.event;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.socket.ServerSocketChannel;
 
 import java.io.InputStream;
@@ -187,7 +187,7 @@ import java.net.SocketAddress;
  * the event in your application.
  *
  * @apiviz.landmark
- * @apiviz.composedOf org.jboss.netty.channel.ChannelFuture
+ * @apiviz.composedOf org.jboss.netty.channel.future.ChannelFuture
  */
 public interface ChannelEvent {
 
@@ -197,9 +197,9 @@ public interface ChannelEvent {
     Channel getChannel();
 
     /**
-     * Returns the {@link org.jboss.netty.channel.ChannelFuture} which is associated with this event.
+     * Returns the {@link org.jboss.netty.channel.future.ChannelFuture} which is associated with this event.
      * If this event is an upstream event, this method will always return a
-     * {@link org.jboss.netty.channel.SucceededChannelFuture} because the event has occurred already.
+     * {@link org.jboss.netty.channel.future.SucceededChannelFuture} because the event has occurred already.
      * If this event is a downstream event (i.e. I/O request), the returned
      * future will be notified when the I/O request succeeds or fails.
      */

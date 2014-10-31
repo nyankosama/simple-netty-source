@@ -20,6 +20,7 @@ import org.jboss.netty.channel.event.ExceptionEvent;
 import org.jboss.netty.channel.event.UpstreamMessageEvent;
 import org.jboss.netty.channel.exception.ChannelHandlerLifeCycleException;
 import org.jboss.netty.channel.exception.ChannelPipelineException;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
 

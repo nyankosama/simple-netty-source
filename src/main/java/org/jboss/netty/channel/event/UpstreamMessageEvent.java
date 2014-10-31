@@ -20,7 +20,7 @@ import static org.jboss.netty.channel.Channels.*;
 import java.net.SocketAddress;
 
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.util.internal.StringUtil;
 
 /**

@@ -13,8 +13,9 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.future;
 
+import org.jboss.netty.channel.Channel;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
 

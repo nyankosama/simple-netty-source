@@ -16,7 +16,7 @@
 package org.jboss.netty.channel.socket;
 
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.DefaultChannelFuture;
+import org.jboss.netty.channel.future.DefaultChannelFuture;
 
 public class ChannelRunnableWrapper extends DefaultChannelFuture implements Runnable {
 

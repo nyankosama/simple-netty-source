@@ -13,13 +13,14 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.future;
 
+import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.exception.ChannelException;
 
 /**
  * The {@link CompleteChannelFuture} which is failed already.  It is
- * recommended to use {@link Channels#failedFuture(Channel, Throwable)}
+ * recommended to use {@link org.jboss.netty.channel.Channels#failedFuture(org.jboss.netty.channel.Channel, Throwable)}
  * instead of calling the constructor of this future.
  */
 public class FailedChannelFuture extends CompleteChannelFuture {
@@ -29,7 +30,7 @@ public class FailedChannelFuture extends CompleteChannelFuture {
     /**
      * Creates a new instance.
      *
-     * @param channel the {@link Channel} associated with this future
+     * @param channel the {@link org.jboss.netty.channel.Channel} associated with this future
      * @param cause   the cause of failure
      */
     public FailedChannelFuture(Channel channel, Throwable cause) {

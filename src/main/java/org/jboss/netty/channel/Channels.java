@@ -19,6 +19,10 @@ import java.net.SocketAddress;
 import java.util.Map;
 
 import org.jboss.netty.channel.event.*;
+import org.jboss.netty.channel.future.ChannelFuture;
+import org.jboss.netty.channel.future.DefaultChannelFuture;
+import org.jboss.netty.channel.future.FailedChannelFuture;
+import org.jboss.netty.channel.future.SucceededChannelFuture;
 import org.jboss.netty.util.internal.ConversionUtil;
 
 

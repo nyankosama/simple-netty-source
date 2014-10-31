@@ -17,7 +17,7 @@ package org.jboss.netty.channel.socket.nio;
 
 import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelSink;
 import org.jboss.netty.logging.InternalLogger;

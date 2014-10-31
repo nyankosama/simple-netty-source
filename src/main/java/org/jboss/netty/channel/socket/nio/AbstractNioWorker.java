@@ -16,7 +16,7 @@
 package org.jboss.netty.channel.socket.nio;
 
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.event.MessageEvent;
 import org.jboss.netty.channel.socket.Worker;
 import org.jboss.netty.channel.socket.nio.SocketSendBufferPool.SendBuffer;

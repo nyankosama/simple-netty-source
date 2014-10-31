@@ -19,7 +19,7 @@ package org.jboss.netty.channel.socket.nio;
 import org.jboss.netty.channel.AbstractChannelSink;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.event.ChannelEvent;
-import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.socket.ChannelRunnableWrapper;
 

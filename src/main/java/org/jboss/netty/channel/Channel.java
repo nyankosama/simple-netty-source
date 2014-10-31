@@ -20,6 +20,7 @@ import java.net.SocketAddress;
 import java.nio.channels.NotYetConnectedException;
 import java.nio.channels.SelectionKey;
 
+import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.socket.ServerSocketChannel;
 import org.jboss.netty.channel.socket.SocketChannel;
 import org.jboss.netty.channel.socket.nio.NioSocketChannelConfig;

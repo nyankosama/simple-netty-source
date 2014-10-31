@@ -18,6 +18,7 @@ package org.jboss.netty.channel;
 
 import org.jboss.netty.channel.event.ChannelEvent;
 import org.jboss.netty.channel.exception.ChannelPipelineException;
+import org.jboss.netty.channel.future.ChannelFuture;
 
 /**
  * Receives and processes the terminal downstream {@link org.jboss.netty.channel.event.ChannelEvent}s.
