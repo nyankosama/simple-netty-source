@@ -13,36 +13,42 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
-
-import static org.jboss.netty.channel.Channels.*;
+package org.jboss.netty.channel.event;
 
 import java.net.SocketAddress;
 
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.util.internal.StringUtil;
 
 /**
- * The default upstream {@link MessageEvent} implementation.
+ * The default downstream {@link MessageEvent} implementation.
  */
-public class UpstreamMessageEvent implements MessageEvent {
+public class DownstreamMessageEvent implements MessageEvent {
 
     private final Channel channel;
+    private final ChannelFuture future;
     private final Object message;
     private final SocketAddress remoteAddress;
 
     /**
      * Creates a new instance.
      */
-    public UpstreamMessageEvent(
-            Channel channel, Object message, SocketAddress remoteAddress) {
+    public DownstreamMessageEvent(
+            Channel channel, ChannelFuture future,
+            Object message, SocketAddress remoteAddress) {
 
         if (channel == null) {
             throw new NullPointerException("channel");
+        }
+        if (future == null) {
+            throw new NullPointerException("future");
         }
         if (message == null) {
             throw new NullPointerException("message");
         }
         this.channel = channel;
+        this.future = future;
         this.message = message;
         if (remoteAddress != null) {
             this.remoteAddress = remoteAddress;
@@ -56,7 +62,7 @@ public class UpstreamMessageEvent implements MessageEvent {
     }
 
     public ChannelFuture getFuture() {
-        return succeededFuture(getChannel());
+        return future;
     }
 
     public Object getMessage() {
@@ -70,11 +76,11 @@ public class UpstreamMessageEvent implements MessageEvent {
     @Override
     public String toString() {
         if (getRemoteAddress() == getChannel().getRemoteAddress()) {
-            return getChannel().toString() + " RECEIVED: " +
+            return getChannel().toString() + " WRITE: " +
                    StringUtil.stripControlCharacters(getMessage());
         } else {
-            return getChannel().toString() + " RECEIVED: " +
-                   StringUtil.stripControlCharacters(getMessage()) + " from " +
+            return getChannel().toString() + " WRITE: " +
+                   StringUtil.stripControlCharacters(getMessage()) + " to " +
                    getRemoteAddress();
         }
     }

@@ -13,43 +13,41 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.exception;
 
 /**
- * A {@link ChannelException} which is thrown when a {@link ChannelPipeline}
- * failed to process a {@link ChannelEvent} or when a {@link ChannelPipelineFactory}
- * failed to initialize a {@link ChannelPipeline}.
+ * A {@link RuntimeException} which is thrown when an I/O operation fails.
  *
  * @apiviz.exclude
  */
-public class ChannelPipelineException extends ChannelException {
+public class ChannelException extends RuntimeException {
 
-    private static final long serialVersionUID = 3379174210419885980L;
+    private static final long serialVersionUID = 2908618315971075004L;
 
     /**
-     * Creates a new instance.
+     * Creates a new exception.
      */
-    public ChannelPipelineException() {
+    public ChannelException() {
     }
 
     /**
-     * Creates a new instance.
+     * Creates a new exception.
      */
-    public ChannelPipelineException(String message, Throwable cause) {
+    public ChannelException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Creates a new instance.
+     * Creates a new exception.
      */
-    public ChannelPipelineException(String message) {
+    public ChannelException(String message) {
         super(message);
     }
 
     /**
-     * Creates a new instance.
+     * Creates a new exception.
      */
-    public ChannelPipelineException(Throwable cause) {
+    public ChannelException(Throwable cause) {
         super(cause);
     }
 }

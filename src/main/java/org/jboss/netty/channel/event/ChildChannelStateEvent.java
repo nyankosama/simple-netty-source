@@ -13,20 +13,22 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.event;
+
+import org.jboss.netty.channel.Channel;
 
 /**
  * A {@link ChannelEvent} which represents the notification of the state of
- * a child {@link Channel}.  This event is for going upstream only.  Please
+ * a child {@link org.jboss.netty.channel.Channel}.  This event is for going upstream only.  Please
  * refer to the {@link ChannelEvent} documentation to find out what an upstream
  * event and a downstream event are and what fundamental differences they have.
  */
 public interface ChildChannelStateEvent extends ChannelEvent {
 
     /**
-     * Returns the <strong>parent</strong> {@link Channel} which is associated
+     * Returns the <strong>parent</strong> {@link org.jboss.netty.channel.Channel} which is associated
      * with this event.  Please note that you should use {@link #getChildChannel()}
-     * to get the {@link Channel} created or accepted by the parent {@link Channel}.
+     * to get the {@link org.jboss.netty.channel.Channel} created or accepted by the parent {@link org.jboss.netty.channel.Channel}.
      */
     Channel getChannel();
 

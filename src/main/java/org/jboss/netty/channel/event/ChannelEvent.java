@@ -13,9 +13,11 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.event;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.socket.ServerSocketChannel;
 
 import java.io.InputStream;
@@ -24,20 +26,20 @@ import java.net.Socket;
 import java.net.SocketAddress;
 
 /**
- * An I/O event or I/O request associated with a {@link Channel}.
+ * An I/O event or I/O request associated with a {@link org.jboss.netty.channel.Channel}.
  * <p>
- * A {@link ChannelEvent} is handled by a series of {@link ChannelHandler}s in
- * a {@link ChannelPipeline}.
+ * A {@link ChannelEvent} is handled by a series of {@link org.jboss.netty.channel.ChannelHandler}s in
+ * a {@link org.jboss.netty.channel.ChannelPipeline}.
  *
  * <h3>Upstream events and downstream events, and their interpretation</h3>
  * <p>
  * Every event is either an upstream event or a downstream event.
  * If an event flows forward from the first handler to the last handler in a
- * {@link ChannelPipeline}, we call it an upstream event and say <strong>"an
+ * {@link org.jboss.netty.channel.ChannelPipeline}, we call it an upstream event and say <strong>"an
  * event goes upstream."</strong>  If an event flows backward from the last
- * handler to the first handler in a {@link ChannelPipeline}, we call it a
+ * handler to the first handler in a {@link org.jboss.netty.channel.ChannelPipeline}, we call it a
  * downstream event and say <strong>"an event goes downstream."</strong>
- * (Please refer to the diagram in {@link ChannelPipeline} for more explanation.)
+ * (Please refer to the diagram in {@link org.jboss.netty.channel.ChannelPipeline} for more explanation.)
  * <p>
  * When your server receives a message from a client, the event associated with
  * the received message is an upstream event.  When your server sends a message
@@ -65,37 +67,37 @@ import java.net.SocketAddress;
  * <tr>
  * <td>{@code "exceptionCaught"}</td>
  * <td>{@link ExceptionEvent}</td>
- * <td>an exception was raised by an I/O thread or a {@link ChannelHandler}</td>
+ * <td>an exception was raised by an I/O thread or a {@link org.jboss.netty.channel.ChannelHandler}</td>
  * </tr>
  * <tr>
  * <td>{@code "channelOpen"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#OPEN OPEN}, value = {@code true})</td>
- * <td>a {@link Channel} is open, but not bound nor connected</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#OPEN OPEN}, value = {@code true})</td>
+ * <td>a {@link org.jboss.netty.channel.Channel} is open, but not bound nor connected</td>
  * <td><strong>Be aware that this event is fired from within the I/O thread.  You should never
  *     execute any heavy operation in there as it will block the dispatching to other workers!</strong></td>
  * </tr>
  * <tr>
  * <td>{@code "channelClosed"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#OPEN OPEN}, value = {@code false})</td>
- * <td>a {@link Channel} was closed and all its related resources were released</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#OPEN OPEN}, value = {@code false})</td>
+ * <td>a {@link org.jboss.netty.channel.Channel} was closed and all its related resources were released</td>
  * </tr>
  * <tr>
  * <td>{@code "channelBound"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#BOUND BOUND}, value = {@link SocketAddress})</td>
- * <td>a {@link Channel} is open and bound to a local address, but not connected.</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#BOUND BOUND}, value = {@link SocketAddress})</td>
+ * <td>a {@link org.jboss.netty.channel.Channel} is open and bound to a local address, but not connected.</td>
  * <td><strong>Be aware that this event is fired from within the I/O thread.  You should never
  *     execute any heavy operation in there as it will block the dispatching to other workers!</strong></td>
  * </tr>
  * <tr>
  * <td>{@code "channelUnbound"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#BOUND BOUND}, value = {@code null})</td>
- * <td>a {@link Channel} was unbound from the current local address</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#BOUND BOUND}, value = {@code null})</td>
+ * <td>a {@link org.jboss.netty.channel.Channel} was unbound from the current local address</td>
  * </tr>
  * <tr>
  * <td>{@code "channelConnected"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#CONNECTED CONNECTED}, value =
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#CONNECTED CONNECTED}, value =
  *     {@link SocketAddress})</td>
- * <td>a {@link Channel} is open, bound to a local address, and connected to a remote address</td>
+ * <td>a {@link org.jboss.netty.channel.Channel} is open, bound to a local address, and connected to a remote address</td>
  * <td><strong>Be aware that this event is fired from within the I/O thread.  You should never
  *     execute any heavy operation in there as it will block the dispatching to other workers!</strong></td>
  * </tr>
@@ -106,13 +108,13 @@ import java.net.SocketAddress;
  * </tr>
  * <tr>
  * <td>{@code "channelDisconnected"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#CONNECTED CONNECTED}, value = {@code null})</td>
- * <td>a {@link Channel} was disconnected from its remote peer</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#CONNECTED CONNECTED}, value = {@code null})</td>
+ * <td>a {@link org.jboss.netty.channel.Channel} was disconnected from its remote peer</td>
  * </tr>
  * <tr>
  * <td>{@code "channelInterestChanged"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#INTEREST_OPS INTEREST_OPS}, no value)</td>
- * <td>a {@link Channel}'s {@link Channel#getInterestOps() interestOps} was changed</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#INTEREST_OPS INTEREST_OPS}, no value)</td>
+ * <td>a {@link org.jboss.netty.channel.Channel}'s {@link org.jboss.netty.channel.Channel#getInterestOps() interestOps} was changed</td>
  * </tr>
  * </table>
  * <p>
@@ -126,12 +128,12 @@ import java.net.SocketAddress;
  * <tr>
  * <td>{@code "childChannelOpen"}</td>
  * <td>{@link ChildChannelStateEvent}<br/>({@code childChannel.isOpen() = true})</td>
- * <td>a child {@link Channel} was open (e.g. a server channel accepted a connection.)</td>
+ * <td>a child {@link org.jboss.netty.channel.Channel} was open (e.g. a server channel accepted a connection.)</td>
  * </tr>
  * <tr>
  * <td>{@code "childChannelClosed"}</td>
  * <td>{@link ChildChannelStateEvent}<br/>({@code childChannel.isOpen() = false})</td>
- * <td>a child {@link Channel} was closed (e.g. the accepted connection was closed.)</td>
+ * <td>a child {@link org.jboss.netty.channel.Channel} was closed (e.g. the accepted connection was closed.)</td>
  * </tr>
  * </table>
  *
@@ -143,44 +145,44 @@ import java.net.SocketAddress;
  * </tr>
  * <tr>
  * <td>{@code "write"}</td>
- * <td>{@link MessageEvent}</td><td>Send a message to the {@link Channel}.</td>
+ * <td>{@link MessageEvent}</td><td>Send a message to the {@link org.jboss.netty.channel.Channel}.</td>
  * </tr>
  * <tr>
  * <td>{@code "bind"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#BOUND BOUND}, value = {@link SocketAddress})</td>
- * <td>Bind the {@link Channel} to the specified local address.</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#BOUND BOUND}, value = {@link SocketAddress})</td>
+ * <td>Bind the {@link org.jboss.netty.channel.Channel} to the specified local address.</td>
  * </tr>
  * <tr>
  * <td>{@code "unbind"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#BOUND BOUND}, value = {@code null})</td>
- * <td>Unbind the {@link Channel} from the current local address.</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#BOUND BOUND}, value = {@code null})</td>
+ * <td>Unbind the {@link org.jboss.netty.channel.Channel} from the current local address.</td>
  * </tr>
  * <tr>
  * <td>{@code "connect"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#CONNECTED CONNECTED}, value =
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#CONNECTED CONNECTED}, value =
  *     {@link SocketAddress})</td>
- * <td>Connect the {@link Channel} to the specified remote address.</td>
+ * <td>Connect the {@link org.jboss.netty.channel.Channel} to the specified remote address.</td>
  * </tr>
  * <tr>
  * <td>{@code "disconnect"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#CONNECTED CONNECTED}, value = {@code null})</td>
- * <td>Disconnect the {@link Channel} from the current remote address.</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#CONNECTED CONNECTED}, value = {@code null})</td>
+ * <td>Disconnect the {@link org.jboss.netty.channel.Channel} from the current remote address.</td>
  * </tr>
  * <tr>
  * <td>{@code "close"}</td>
- * <td>{@link ChannelStateEvent}<br/>(state = {@link ChannelState#OPEN OPEN}, value = {@code false})</td>
- * <td>Close the {@link Channel}.</td>
+ * <td>{@link ChannelStateEvent}<br/>(state = {@link org.jboss.netty.channel.ChannelState#OPEN OPEN}, value = {@code false})</td>
+ * <td>Close the {@link org.jboss.netty.channel.Channel}.</td>
  * </tr>
  * </table>
  * <p>
  * Other event types and conditions which were not addressed here will be
  * ignored and discarded.  Please note that there's no {@code "open"} in the
- * table.  It is because a {@link Channel} is always open when it is created
- * by a {@link ChannelFactory}.
+ * table.  It is because a {@link org.jboss.netty.channel.Channel} is always open when it is created
+ * by a {@link org.jboss.netty.channel.ChannelFactory}.
  *
  * <h3>Additional resources worth reading</h3>
  * <p>
- * Please refer to the {@link ChannelHandler} and {@link ChannelPipeline}
+ * Please refer to the {@link org.jboss.netty.channel.ChannelHandler} and {@link org.jboss.netty.channel.ChannelPipeline}
  * documentation to find out how an event flows in a pipeline and how to handle
  * the event in your application.
  *
@@ -190,14 +192,14 @@ import java.net.SocketAddress;
 public interface ChannelEvent {
 
     /**
-     * Returns the {@link Channel} which is associated with this event.
+     * Returns the {@link org.jboss.netty.channel.Channel} which is associated with this event.
      */
     Channel getChannel();
 
     /**
-     * Returns the {@link ChannelFuture} which is associated with this event.
+     * Returns the {@link org.jboss.netty.channel.ChannelFuture} which is associated with this event.
      * If this event is an upstream event, this method will always return a
-     * {@link SucceededChannelFuture} because the event has occurred already.
+     * {@link org.jboss.netty.channel.SucceededChannelFuture} because the event has occurred already.
      * If this event is a downstream event (i.e. I/O request), the returned
      * future will be notified when the I/O request succeeds or fails.
      */

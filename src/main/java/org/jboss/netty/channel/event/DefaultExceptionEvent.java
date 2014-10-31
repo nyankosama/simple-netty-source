@@ -13,32 +13,33 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.event;
+
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelFuture;
 
 import static org.jboss.netty.channel.Channels.*;
 
 /**
- * The default {@link WriteCompletionEvent} implementation.
+ * The default {@link ExceptionEvent} implementation.
  */
-public class DefaultWriteCompletionEvent implements WriteCompletionEvent {
+public class DefaultExceptionEvent implements ExceptionEvent {
 
     private final Channel channel;
-    private final long writtenAmount;
+    private final Throwable cause;
 
     /**
      * Creates a new instance.
      */
-    public DefaultWriteCompletionEvent(Channel channel, long writtenAmount) {
+    public DefaultExceptionEvent(Channel channel, Throwable cause) {
         if (channel == null) {
             throw new NullPointerException("channel");
         }
-        if (writtenAmount <= 0) {
-            throw new IllegalArgumentException(
-                    "writtenAmount must be a positive integer: " + writtenAmount);
+        if (cause == null) {
+            throw new NullPointerException("cause");
         }
-
         this.channel = channel;
-        this.writtenAmount = writtenAmount;
+        this.cause = cause;
     }
 
     public Channel getChannel() {
@@ -49,17 +50,12 @@ public class DefaultWriteCompletionEvent implements WriteCompletionEvent {
         return succeededFuture(getChannel());
     }
 
-    public long getWrittenAmount() {
-        return writtenAmount;
+    public Throwable getCause() {
+        return cause;
     }
 
     @Override
     public String toString() {
-        String channelString = getChannel().toString();
-        StringBuilder buf = new StringBuilder(channelString.length() + 32);
-        buf.append(channelString);
-        buf.append(" WRITTEN_AMOUNT: ");
-        buf.append(getWrittenAmount());
-        return buf.toString();
+        return getChannel().toString() + " EXCEPTION: " + cause;
     }
 }

@@ -25,18 +25,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Handles or intercepts a {@link ChannelEvent}, and sends a
- * {@link ChannelEvent} to the next handler in a {@link ChannelPipeline}.
+ * Handles or intercepts a {@link org.jboss.netty.channel.event.ChannelEvent}, and sends a
+ * {@link org.jboss.netty.channel.event.ChannelEvent} to the next handler in a {@link ChannelPipeline}.
  *
  * <h3>Sub-types</h3>
  * <p>
  * {@link ChannelHandler} itself does not provide any method.  To handle a
- * {@link ChannelEvent} you need to implement its sub-interfaces.  There are
+ * {@link org.jboss.netty.channel.event.ChannelEvent} you need to implement its sub-interfaces.  There are
  * two sub-interfaces which handles a received event, one for upstream events
  * and the other for downstream events:
  * <ul>
- * <li>{@link ChannelUpstreamHandler} handles and intercepts an upstream {@link ChannelEvent}.</li>
- * <li>{@link ChannelDownstreamHandler} handles and intercepts a downstream {@link ChannelEvent}.</li>
+ * <li>{@link ChannelUpstreamHandler} handles and intercepts an upstream {@link org.jboss.netty.channel.event.ChannelEvent}.</li>
+ * <li>{@link ChannelDownstreamHandler} handles and intercepts a downstream {@link org.jboss.netty.channel.event.ChannelEvent}.</li>
  * </ul>
  *
  * You will also find more detailed explanation from the documentation of
@@ -62,7 +62,7 @@ import java.lang.annotation.Target;
  *     <b>private boolean loggedIn;</b>
  *
  *     {@code @Override}
- *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link MessageEvent} e) {
+ *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *         {@link Channel} ch = e.getChannel();
  *         Object o = e.getMessage();
  *         if (o instanceof LoginMessage) {
@@ -104,7 +104,7 @@ import java.lang.annotation.Target;
  * public class DataServerHandler extends {@link SimpleChannelHandler} {
  *
  *     {@code @Override}
- *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link MessageEvent} e) {
+ *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *         {@link Channel} ch = e.getChannel();
  *         Object o = e.getMessage();
  *         if (o instanceof LoginMessage) {
@@ -153,7 +153,7 @@ import java.lang.annotation.Target;
  * public class DataServerHandler extends {@link SimpleChannelHandler} {
  *
  *     {@code @Override}
- *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link MessageEvent} e) {
+ *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *         Channel ch = e.getChannel();
  *         Object o = e.getMessage();
  *         if (o instanceof LoginMessage) {
@@ -198,7 +198,7 @@ import java.lang.annotation.Target;
  *
  * <h3>Additional resources worth reading</h3>
  * <p>
- * Please refer to the {@link ChannelEvent} and {@link ChannelPipeline} to find
+ * Please refer to the {@link org.jboss.netty.channel.event.ChannelEvent} and {@link ChannelPipeline} to find
  * out what a upstream event and a downstream event are, what fundamental
  * differences they have, and how they flow in a pipeline.
  *

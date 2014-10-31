@@ -18,6 +18,7 @@ package org.jboss.netty.channel;
 import java.net.SocketAddress;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.channel.event.*;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
 
@@ -28,20 +29,20 @@ import org.jboss.netty.logging.InternalLoggerFactory;
  * or downstream event into more meaningful sub-type event and calls an
  * appropriate handler method with the down-cast event.  For an upstream
  * event, the names of the methods are identical to the upstream event names,
- * as introduced in the {@link ChannelEvent} documentation.  For a
+ * as introduced in the {@link org.jboss.netty.channel.event.ChannelEvent} documentation.  For a
  * downstream event, the names of the methods starts with the name of the
  * operation and ends with {@code "Requested"}
- * (e.g. {@link #writeRequested(ChannelHandlerContext, MessageEvent) writeRequested}.)
+ * (e.g. {@link #writeRequested(ChannelHandlerContext, org.jboss.netty.channel.event.MessageEvent) writeRequested}.)
  * <p>
  * Please use {@link SimpleChannelUpstreamHandler} or
  * {@link SimpleChannelDownstreamHandler} if you want to intercept only
  * upstream or downstream events.
  *
- * <h3>Overriding the {@link #handleUpstream(ChannelHandlerContext, ChannelEvent) handleUpstream}
- *     and {@link #handleDownstream(ChannelHandlerContext, ChannelEvent) handleDownstream} method</h3>
+ * <h3>Overriding the {@link #handleUpstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleUpstream}
+ *     and {@link #handleDownstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleDownstream} method</h3>
  * <p>
- * You can override the {@link #handleUpstream(ChannelHandlerContext, ChannelEvent) handleUpstream}
- * and {@link #handleDownstream(ChannelHandlerContext, ChannelEvent) handleDownstream}
+ * You can override the {@link #handleUpstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleUpstream}
+ * and {@link #handleDownstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleDownstream}
  * method just like overriding an ordinary Java method.  Please make sure to
  * call {@code super.handleUpstream()} or {@code super.handleDownstream()} so
  * that other handler methods are invoked properly:
@@ -49,10 +50,10 @@ import org.jboss.netty.logging.InternalLoggerFactory;
  * <pre>public class MyChannelHandler extends {@link SimpleChannelHandler} {
  *
  *     {@code @Override}
- *     public void handleUpstream({@link ChannelHandlerContext} ctx, {@link ChannelEvent} e) throws Exception {
+ *     public void handleUpstream({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.ChannelEvent} e) throws Exception {
  *
  *         // Log all channel state changes.
- *         if (e instanceof {@link ChannelStateEvent}) {
+ *         if (e instanceof {@link org.jboss.netty.channel.event.ChannelStateEvent}) {
  *             logger.info("Channel state changed: " + e);
  *         }
  *
@@ -60,10 +61,10 @@ import org.jboss.netty.logging.InternalLoggerFactory;
  *     }
  *
  *     {@code @Override}
- *     public void handleDownstream({@link ChannelHandlerContext} ctx, {@link ChannelEvent} e) throws Exception {
+ *     public void handleDownstream({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.ChannelEvent} e) throws Exception {
  *
  *         // Log all channel state changes.
- *         if (e instanceof {@link MessageEvent}) {
+ *         if (e instanceof {@link org.jboss.netty.channel.event.MessageEvent}) {
  *             logger.info("Writing:: " + e);
  *         }
  *

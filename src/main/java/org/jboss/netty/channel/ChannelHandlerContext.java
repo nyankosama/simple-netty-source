@@ -16,16 +16,18 @@
 package org.jboss.netty.channel;
 
 
+import org.jboss.netty.channel.event.ChannelEvent;
+
 /**
  * Enables a {@link ChannelHandler} to interact with its {@link ChannelPipeline}
- * and other handlers.  A handler can send a {@link ChannelEvent} upstream or
+ * and other handlers.  A handler can send a {@link org.jboss.netty.channel.event.ChannelEvent} upstream or
  * downstream, modify the {@link ChannelPipeline} it belongs to dynamically.
  *
  * <h3>Sending an event</h3>
  *
- * You can send or forward a {@link ChannelEvent} to the closest handler in the
- * same {@link ChannelPipeline} by calling {@link #sendUpstream(ChannelEvent)}
- * or {@link #sendDownstream(ChannelEvent)}.  Please refer to
+ * You can send or forward a {@link org.jboss.netty.channel.event.ChannelEvent} to the closest handler in the
+ * same {@link ChannelPipeline} by calling {@link #sendUpstream(org.jboss.netty.channel.event.ChannelEvent)}
+ * or {@link #sendDownstream(org.jboss.netty.channel.event.ChannelEvent)}.  Please refer to
  * {@link ChannelPipeline} to understand how an event flows.
  *
  * <h3>Modifying a pipeline</h3>
@@ -83,7 +85,7 @@ package org.jboss.netty.channel;
  *   // This handler will receive a sequence of increasing integers starting
  *   // from 1.
  *   {@code @Override}
- *   public void messageReceived({@link ChannelHandlerContext} ctx, {@link MessageEvent} evt) {
+ *   public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} evt) {
  *     Integer a = (Integer) ctx.getAttachment();
  *     Integer b = (Integer) evt.getMessage();
  *
@@ -112,7 +114,7 @@ package org.jboss.netty.channel;
  *
  * <h3>Additional resources worth reading</h3>
  * <p>
- * Please refer to the {@link ChannelHandler}, {@link ChannelEvent}, and
+ * Please refer to the {@link ChannelHandler}, {@link org.jboss.netty.channel.event.ChannelEvent}, and
  * {@link ChannelPipeline} to find out what a upstream event and a downstream
  * event are, what fundamental differences they have, how they flow in a
  * pipeline,  and how to handle the event in your application.
@@ -158,7 +160,7 @@ public interface ChannelHandlerContext {
     boolean canHandleDownstream();
 
     /**
-     * Sends the specified {@link ChannelEvent} to the
+     * Sends the specified {@link org.jboss.netty.channel.event.ChannelEvent} to the
      * {@link ChannelUpstreamHandler} which is placed in the closest upstream
      * from the handler associated with this context.  It is recommended to use
      * the shortcut methods in {@link Channels} rather than calling this method

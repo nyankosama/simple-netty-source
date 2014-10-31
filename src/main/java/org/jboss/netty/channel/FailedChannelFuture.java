@@ -15,6 +15,8 @@
  */
 package org.jboss.netty.channel;
 
+import org.jboss.netty.channel.exception.ChannelException;
+
 /**
  * The {@link CompleteChannelFuture} which is failed already.  It is
  * recommended to use {@link Channels#failedFuture(Channel, Throwable)}

@@ -19,7 +19,7 @@ import java.net.Socket;
 import java.util.Map;
 
 import org.jboss.netty.channel.AdaptiveReceiveBufferSizePredictorFactory;
-import org.jboss.netty.channel.ChannelException;
+import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.channel.ReceiveBufferSizePredictor;
 import org.jboss.netty.channel.ReceiveBufferSizePredictorFactory;
 import org.jboss.netty.channel.socket.DefaultSocketChannelConfig;

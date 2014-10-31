@@ -22,7 +22,7 @@ import java.net.InetSocketAddress;
 import java.nio.channels.ServerSocketChannel;
 
 import org.jboss.netty.channel.AbstractServerChannel;
-import org.jboss.netty.channel.ChannelException;
+import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.channel.ChannelFactory;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelSink;

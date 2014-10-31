@@ -15,6 +15,10 @@
  */
 package org.jboss.netty.channel;
 
+import org.jboss.netty.channel.event.ChannelEvent;
+import org.jboss.netty.channel.event.ChannelStateEvent;
+import org.jboss.netty.channel.event.MessageEvent;
+
 import java.net.SocketAddress;
 
 
@@ -24,14 +28,14 @@ import java.net.SocketAddress;
  * event into more meaningful sub-type event and calls an appropriate handler
  * method with the down-cast event.  The names of the methods starts with the
  * name of the operation and ends with {@code "Requested"}
- * (e.g. {@link #writeRequested(ChannelHandlerContext, MessageEvent) writeRequested}.)
+ * (e.g. {@link #writeRequested(ChannelHandlerContext, org.jboss.netty.channel.event.MessageEvent) writeRequested}.)
  * <p>
  * Please use {@link SimpleChannelHandler} if you need to implement both
  * {@link ChannelUpstreamHandler} and {@link ChannelDownstreamHandler}.
  *
- * <h3>Overriding the {@link #handleDownstream(ChannelHandlerContext, ChannelEvent) handleDownstream} method</h3>
+ * <h3>Overriding the {@link #handleDownstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleDownstream} method</h3>
  * <p>
- * You can override the {@link #handleDownstream(ChannelHandlerContext, ChannelEvent) handleDownstream}
+ * You can override the {@link #handleDownstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleDownstream}
  * method just like overriding an ordinary Java method.  Please make sure to
  * call {@code super.handleDownstream()} so that other handler methods are
  * invoked properly:
@@ -39,10 +43,10 @@ import java.net.SocketAddress;
  * <pre>public class MyChannelHandler extends {@link SimpleChannelDownstreamHandler} {
  *
  *     {@code @Override}
- *     public void handleDownstream({@link ChannelHandlerContext} ctx, {@link ChannelEvent} e) throws Exception {
+ *     public void handleDownstream({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.ChannelEvent} e) throws Exception {
  *
  *         // Log all channel state changes.
- *         if (e instanceof {@link MessageEvent}) {
+ *         if (e instanceof {@link org.jboss.netty.channel.event.MessageEvent}) {
  *             logger.info("Writing:: " + e);
  *         }
  *

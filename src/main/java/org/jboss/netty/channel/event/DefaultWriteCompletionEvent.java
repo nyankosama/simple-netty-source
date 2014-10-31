@@ -13,30 +13,35 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.event;
+
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelFuture;
 
 import static org.jboss.netty.channel.Channels.*;
 
 /**
- * The default {@link ExceptionEvent} implementation.
+ * The default {@link WriteCompletionEvent} implementation.
  */
-public class DefaultExceptionEvent implements ExceptionEvent {
+public class DefaultWriteCompletionEvent implements WriteCompletionEvent {
 
     private final Channel channel;
-    private final Throwable cause;
+    private final long writtenAmount;
 
     /**
      * Creates a new instance.
      */
-    public DefaultExceptionEvent(Channel channel, Throwable cause) {
+    public DefaultWriteCompletionEvent(Channel channel, long writtenAmount) {
         if (channel == null) {
             throw new NullPointerException("channel");
         }
-        if (cause == null) {
-            throw new NullPointerException("cause");
+        if (writtenAmount <= 0) {
+            throw new IllegalArgumentException(
+                    "writtenAmount must be a positive integer: " + writtenAmount);
         }
+
         this.channel = channel;
-        this.cause = cause;
+        this.writtenAmount = writtenAmount;
     }
 
     public Channel getChannel() {
@@ -47,12 +52,17 @@ public class DefaultExceptionEvent implements ExceptionEvent {
         return succeededFuture(getChannel());
     }
 
-    public Throwable getCause() {
-        return cause;
+    public long getWrittenAmount() {
+        return writtenAmount;
     }
 
     @Override
     public String toString() {
-        return getChannel().toString() + " EXCEPTION: " + cause;
+        String channelString = getChannel().toString();
+        StringBuilder buf = new StringBuilder(channelString.length() + 32);
+        buf.append(channelString);
+        buf.append(" WRITTEN_AMOUNT: ");
+        buf.append(getWrittenAmount());
+        return buf.toString();
     }
 }

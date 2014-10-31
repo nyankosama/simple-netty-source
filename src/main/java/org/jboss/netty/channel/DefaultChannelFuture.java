@@ -15,6 +15,7 @@
  */
 package org.jboss.netty.channel;
 
+import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
 import org.jboss.netty.util.internal.DeadLockProofWorker;

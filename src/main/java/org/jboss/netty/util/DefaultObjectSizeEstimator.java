@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.channel.MessageEvent;
+import org.jboss.netty.channel.event.MessageEvent;
 import org.jboss.netty.util.internal.ConcurrentIdentityWeakKeyHashMap;
 
 /**

@@ -17,7 +17,7 @@ package org.jboss.netty.bootstrap;
 
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelConfig;
-import org.jboss.netty.channel.ChannelException;
+import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.channel.ChannelFactory;
 import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ChannelFutureListener;
@@ -25,11 +25,11 @@ import org.jboss.netty.channel.ChannelHandler;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.ChannelStateEvent;
+import org.jboss.netty.channel.event.ChannelStateEvent;
 import org.jboss.netty.channel.Channels;
-import org.jboss.netty.channel.ChildChannelStateEvent;
+import org.jboss.netty.channel.event.ChildChannelStateEvent;
 import org.jboss.netty.channel.DefaultChannelFuture;
-import org.jboss.netty.channel.ExceptionEvent;
+import org.jboss.netty.channel.event.ExceptionEvent;
 import org.jboss.netty.channel.ServerChannelFactory;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 

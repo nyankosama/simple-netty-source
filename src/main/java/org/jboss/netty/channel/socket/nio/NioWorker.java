@@ -18,7 +18,7 @@ package org.jboss.netty.channel.socket.nio;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBufferFactory;
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelException;
+import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ReceiveBufferSizePredictor;
 import org.jboss.netty.util.ThreadNameDeterminer;

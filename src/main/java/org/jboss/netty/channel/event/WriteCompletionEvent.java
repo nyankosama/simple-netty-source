@@ -13,19 +13,21 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.event;
 
 /**
- * A {@link ChannelEvent} which represents the notification of an exception
- * raised by a {@link ChannelHandler} or an I/O thread.  This event is for
- * going upstream only.  Please refer to the {@link ChannelEvent} documentation
- * to find out what an upstream event and a downstream event are and what
- * fundamental differences they have.
+ * A {@link ChannelEvent} which represents the notification of the completion
+ * of a write request on a {@link org.jboss.netty.channel.Channel}.  This event is for going upstream
+ * only.  Please refer to the {@link ChannelEvent} documentation to find out
+ * what an upstream event and a downstream event are and what fundamental
+ * differences they have.
  */
-public interface ExceptionEvent extends ChannelEvent {
-
+public interface WriteCompletionEvent extends ChannelEvent {
     /**
-     * Returns the raised exception.
+     * Returns the amount of data written.
+     *
+     * @return the number of written bytes or messages, depending on the
+     *         type of the transport
      */
-    Throwable getCause();
+    long getWrittenAmount();
 }

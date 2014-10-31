@@ -13,33 +13,40 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.event;
 
-import static org.jboss.netty.channel.Channels.*;
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.ChannelState;
 
 /**
- * The default upstream {@link ChannelStateEvent} implementation.
+ * The default downstream {@link ChannelStateEvent} implementation.
  */
-public class UpstreamChannelStateEvent implements ChannelStateEvent {
+public class DownstreamChannelStateEvent implements ChannelStateEvent {
 
     private final Channel channel;
+    private final ChannelFuture future;
     private final ChannelState state;
     private final Object value;
 
     /**
      * Creates a new instance.
      */
-    public UpstreamChannelStateEvent(
-            Channel channel, ChannelState state, Object value) {
+    public DownstreamChannelStateEvent(
+            Channel channel, ChannelFuture future,
+            ChannelState state, Object value) {
 
         if (channel == null) {
             throw new NullPointerException("channel");
         }
+        if (future == null) {
+            throw new NullPointerException("future");
+        }
         if (state == null) {
             throw new NullPointerException("state");
         }
-
         this.channel = channel;
+        this.future = future;
         this.state = state;
         this.value = value;
     }
@@ -49,7 +56,7 @@ public class UpstreamChannelStateEvent implements ChannelStateEvent {
     }
 
     public ChannelFuture getFuture() {
-        return succeededFuture(getChannel());
+        return future;
     }
 
     public ChannelState getState() {
@@ -70,29 +77,31 @@ public class UpstreamChannelStateEvent implements ChannelStateEvent {
             if (Boolean.TRUE.equals(getValue())) {
                 buf.append(" OPEN");
             } else {
-                buf.append(" CLOSED");
+                buf.append(" CLOSE");
             }
             break;
         case BOUND:
             if (getValue() != null) {
-                buf.append(" BOUND: ");
+                buf.append(" BIND: ");
                 buf.append(getValue());
             } else {
-                buf.append(" UNBOUND");
+                buf.append(" UNBIND");
             }
             break;
         case CONNECTED:
             if (getValue() != null) {
-                buf.append(" CONNECTED: ");
+                buf.append(" CONNECT: ");
                 buf.append(getValue());
             } else {
-                buf.append(" DISCONNECTED");
+                buf.append(" DISCONNECT");
             }
             break;
         case INTEREST_OPS:
-            buf.append(" INTEREST_CHANGED");
+            buf.append(" CHANGE_INTEREST: ");
+            buf.append(getValue());
             break;
         default:
+            buf.append(' ');
             buf.append(getState().name());
             buf.append(": ");
             buf.append(getValue());

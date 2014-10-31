@@ -30,7 +30,7 @@ import org.jboss.netty.util.ExternalResourceReleasable;
  * Once a new {@link Channel} is created, the {@link ChannelPipeline} which
  * was specified as a parameter in the {@link #newChannel(ChannelPipeline)}
  * is attached to the new {@link Channel}, and starts to handle all associated
- * {@link ChannelEvent}s.
+ * {@link org.jboss.netty.channel.event.ChannelEvent}s.
  *
  * <h3>Graceful shutdown</h3>
  * <p>
@@ -62,7 +62,7 @@ public interface ChannelFactory extends ExternalResourceReleasable {
      *
      * @return the newly open channel
      *
-     * @throws ChannelException if failed to create and open a new channel
+     * @throws org.jboss.netty.channel.exception.ChannelException if failed to create and open a new channel
      */
     Channel newChannel(ChannelPipeline pipeline);
 

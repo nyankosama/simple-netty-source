@@ -15,9 +15,11 @@
  */
 package org.jboss.netty.channel;
 
+import org.jboss.netty.channel.event.ChannelEvent;
+
 /**
- * Handles or intercepts a downstream {@link ChannelEvent}, and sends a
- * {@link ChannelEvent} to the next handler in a {@link ChannelPipeline}.
+ * Handles or intercepts a downstream {@link org.jboss.netty.channel.event.ChannelEvent}, and sends a
+ * {@link org.jboss.netty.channel.event.ChannelEvent} to the next handler in a {@link ChannelPipeline}.
  * <p>
  * The most common use case of this interface is to intercept an I/O request
  * such as {@link Channel#write(Object)} and {@link Channel#close()}.
@@ -38,16 +40,16 @@ package org.jboss.netty.channel;
  *
  * <pre>
  * // Sending the event downstream (outbound)
- * void handleDownstream({@link ChannelHandlerContext} ctx, {@link ChannelEvent} e) throws Exception {
+ * void handleDownstream({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.ChannelEvent} e) throws Exception {
  *     ...
  *     ctx.sendDownstream(e);
  *     ...
  * }
  *
  * // Sending the event upstream (inbound)
- * void handleDownstream({@link ChannelHandlerContext} ctx, {@link ChannelEvent} e) throws Exception {
+ * void handleDownstream({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.ChannelEvent} e) throws Exception {
  *     ...
- *     ctx.sendUpstream(new {@link UpstreamChannelStateEvent}(...));
+ *     ctx.sendUpstream(new {@link org.jboss.netty.channel.event.UpstreamChannelStateEvent}(...));
  *     ...
  * }
  * </pre>
@@ -68,7 +70,7 @@ package org.jboss.netty.channel;
  *
  * <h3>Thread safety</h3>
  * <p>
- * {@link #handleDownstream(ChannelHandlerContext, ChannelEvent) handleDownstream}
+ * {@link #handleDownstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleDownstream}
  * may be invoked by more than one thread simultaneously.  If the handler
  * accesses a shared resource or stores stateful information, you might need
  * proper synchronization in the handler implementation.

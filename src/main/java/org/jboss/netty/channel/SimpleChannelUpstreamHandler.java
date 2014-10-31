@@ -16,6 +16,7 @@
 package org.jboss.netty.channel;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.channel.event.*;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
 
@@ -27,14 +28,14 @@ import java.util.List;
  * for each event type.  This handler down-casts the received upstream event
  * into more meaningful sub-type event and calls an appropriate handler method
  * with the down-cast event.  The names of the methods are identical to the
- * upstream event names, as introduced in the {@link ChannelEvent} documentation.
+ * upstream event names, as introduced in the {@link org.jboss.netty.channel.event.ChannelEvent} documentation.
  * <p>
  * Please use {@link SimpleChannelHandler} if you need to implement both
  * {@link ChannelUpstreamHandler} and {@link ChannelDownstreamHandler}.
  *
- * <h3>Overriding the {@link #handleUpstream(ChannelHandlerContext, ChannelEvent) handleUpstream} method</h3>
+ * <h3>Overriding the {@link #handleUpstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleUpstream} method</h3>
  * <p>
- * You can override the {@link #handleUpstream(ChannelHandlerContext, ChannelEvent) handleUpstream}
+ * You can override the {@link #handleUpstream(ChannelHandlerContext, org.jboss.netty.channel.event.ChannelEvent) handleUpstream}
  * method just like overriding an ordinary Java method.  Please make sure to
  * call {@code super.handleUpstream()} so that other handler methods are invoked
  * properly:
@@ -42,10 +43,10 @@ import java.util.List;
  * <pre>public class MyChannelHandler extends {@link SimpleChannelUpstreamHandler} {
  *
  *     {@code @Override}
- *     public void handleUpstream({@link ChannelHandlerContext} ctx, {@link ChannelEvent} e) throws Exception {
+ *     public void handleUpstream({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.ChannelEvent} e) throws Exception {
  *
  *         // Log all channel state changes.
- *         if (e instanceof {@link ChannelStateEvent}) {
+ *         if (e instanceof {@link org.jboss.netty.channel.event.ChannelStateEvent}) {
  *             logger.info("Channel state changed: " + e);
  *         }
  *

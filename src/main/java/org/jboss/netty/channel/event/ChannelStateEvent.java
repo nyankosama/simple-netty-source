@@ -13,11 +13,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.event;
 
+
+import org.jboss.netty.channel.ChannelState;
 
 /**
- * A {@link ChannelEvent} which represents the change of the {@link Channel}
+ * A {@link ChannelEvent} which represents the change of the {@link org.jboss.netty.channel.Channel}
  * state.  It can mean the notification of a change or the request for a
  * change, depending on whether it is an upstream event or a downstream event
  * respectively.  Please refer to the {@link ChannelEvent} documentation to
@@ -29,12 +31,12 @@ package org.jboss.netty.channel;
 public interface ChannelStateEvent extends ChannelEvent {
 
     /**
-     * Returns the changed property of the {@link Channel}.
+     * Returns the changed property of the {@link org.jboss.netty.channel.Channel}.
      */
     ChannelState getState();
 
     /**
-     * Returns the value of the changed property of the {@link Channel}.
+     * Returns the value of the changed property of the {@link org.jboss.netty.channel.Channel}.
      * Please refer to {@link ChannelState} documentation to find out the
      * allowed values for each property.
      */

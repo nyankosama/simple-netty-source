@@ -21,8 +21,8 @@ package org.jboss.netty.channel;
  *
  * <h3>Invalid access to the {@link ChannelHandlerContext}</h3>
  *
- * Calling {@link ChannelHandlerContext#sendUpstream(ChannelEvent)} or
- * {@link ChannelHandlerContext#sendDownstream(ChannelEvent)} in
+ * Calling {@link ChannelHandlerContext#sendUpstream(org.jboss.netty.channel.event.ChannelEvent)} or
+ * {@link ChannelHandlerContext#sendDownstream(org.jboss.netty.channel.event.ChannelEvent)} in
  * {@link #beforeAdd(ChannelHandlerContext)} or {@link #afterRemove(ChannelHandlerContext)}
  * might lead to an unexpected behavior.  It is because the context object
  * might not have been fully added to the pipeline or the context object is not

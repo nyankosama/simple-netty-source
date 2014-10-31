@@ -22,11 +22,12 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.channel.event.ChannelEvent;
 
 
 /**
  * A list of {@link ChannelHandler}s which handles or intercepts
- * {@link ChannelEvent}s of a {@link Channel}.  {@link ChannelPipeline}
+ * {@link org.jboss.netty.channel.event.ChannelEvent}s of a {@link Channel}.  {@link ChannelPipeline}
  * implements an advanced form of the
  * <a href="http://java.sun.com/blueprints/corej2eepatterns/Patterns/InterceptingFilter.html">Intercepting
  * Filter</a> pattern to give a user full control over how an event is handled
@@ -49,14 +50,14 @@ import org.jboss.netty.buffer.ChannelBuffer;
  *
  * <h3>How an event flows in a pipeline</h3>
  *
- * The following diagram describes how {@link ChannelEvent}s are processed by
+ * The following diagram describes how {@link org.jboss.netty.channel.event.ChannelEvent}s are processed by
  * {@link ChannelHandler}s in a {@link ChannelPipeline} typically.
- * A {@link ChannelEvent} can be handled by either a {@link ChannelUpstreamHandler}
+ * A {@link org.jboss.netty.channel.event.ChannelEvent} can be handled by either a {@link ChannelUpstreamHandler}
  * or a {@link ChannelDownstreamHandler} and be forwarded to the closest
- * handler by calling {@link ChannelHandlerContext#sendUpstream(ChannelEvent)}
- * or {@link ChannelHandlerContext#sendDownstream(ChannelEvent)}.  The meaning
+ * handler by calling {@link ChannelHandlerContext#sendUpstream(org.jboss.netty.channel.event.ChannelEvent)}
+ * or {@link ChannelHandlerContext#sendDownstream(org.jboss.netty.channel.event.ChannelEvent)}.  The meaning
  * of the event is interpreted somewhat differently depending on whether it is
- * going upstream or going downstream. Please refer to {@link ChannelEvent} for
+ * going upstream or going downstream. Please refer to {@link org.jboss.netty.channel.event.ChannelEvent} for
  * more information.
  * <pre>
  *                                       I/O Request
@@ -186,7 +187,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
  * public class FirstHandler extends {@link SimpleChannelUpstreamHandler} {
  *
  *     {@code @Override}
- *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link MessageEvent} e) {
+ *     public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *         // Remove this handler from the pipeline,
  *         ctx.getPipeline().remove(this);
  *         // And let SecondHandler handle the current event.
@@ -435,7 +436,7 @@ public interface ChannelPipeline {
     ChannelHandlerContext getContext(Class<? extends ChannelHandler> handlerType);
 
     /**
-     * Sends the specified {@link ChannelEvent} to the first
+     * Sends the specified {@link org.jboss.netty.channel.event.ChannelEvent} to the first
      * {@link ChannelUpstreamHandler} in this pipeline.
      *
      * @throws NullPointerException

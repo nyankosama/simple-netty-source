@@ -16,8 +16,11 @@
 package org.jboss.netty.channel;
 
 
+import org.jboss.netty.channel.event.ChannelEvent;
+import org.jboss.netty.channel.exception.ChannelPipelineException;
+
 /**
- * Receives and processes the terminal downstream {@link ChannelEvent}s.
+ * Receives and processes the terminal downstream {@link org.jboss.netty.channel.event.ChannelEvent}s.
  * <p>
  * A {@link ChannelSink} is an internal component which is supposed to be
  * implemented by a transport provider.  Most users will not see this type
@@ -28,7 +31,7 @@ package org.jboss.netty.channel;
 public interface ChannelSink {
 
     /**
-     * Invoked by {@link ChannelPipeline} when a downstream {@link ChannelEvent}
+     * Invoked by {@link ChannelPipeline} when a downstream {@link org.jboss.netty.channel.event.ChannelEvent}
      * has reached its terminal (the head of the pipeline).
      */
     void eventSunk(ChannelPipeline pipeline, ChannelEvent e) throws Exception;

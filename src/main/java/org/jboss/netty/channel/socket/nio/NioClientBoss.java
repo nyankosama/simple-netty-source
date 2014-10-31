@@ -17,7 +17,7 @@ package org.jboss.netty.channel.socket.nio;
 
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
-import org.jboss.netty.channel.ConnectTimeoutException;
+import org.jboss.netty.channel.exception.ConnectTimeoutException;
 import org.jboss.netty.util.ThreadNameDeterminer;
 import org.jboss.netty.util.ThreadRenamingRunnable;
 import org.jboss.netty.util.Timeout;

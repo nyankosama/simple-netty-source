@@ -92,7 +92,7 @@ import org.jboss.netty.bootstrap.ClientBootstrap;
  * <pre>
  * // BAD - NEVER DO THIS
  * {@code @Override}
- * public void messageReceived({@link ChannelHandlerContext} ctx, {@link MessageEvent} e) {
+ * public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *     if (e.getMessage() instanceof GoodByeMessage) {
  *         {@link ChannelFuture} future = e.getChannel().close();
  *         future.awaitUninterruptibly();
@@ -103,7 +103,7 @@ import org.jboss.netty.bootstrap.ClientBootstrap;
  *
  * // GOOD
  * {@code @Override}
- * public void messageReceived({@link ChannelHandlerContext} ctx, {@link MessageEvent} e) {
+ * public void messageReceived({@link ChannelHandlerContext} ctx, {@link org.jboss.netty.channel.event.MessageEvent} e) {
  *     if (e.getMessage() instanceof GoodByeMessage) {
  *         {@link ChannelFuture} future = e.getChannel().close();
  *         future.addListener(new {@link ChannelFutureListener}() {
@@ -269,14 +269,14 @@ public interface ChannelFuture {
     /**
      * Waits for this future until it is done, and rethrows the cause of the failure if this future
      * failed.  If the cause of the failure is a checked exception, it is wrapped with a new
-     * {@link ChannelException} before being thrown.
+     * {@link org.jboss.netty.channel.exception.ChannelException} before being thrown.
      */
     ChannelFuture sync() throws InterruptedException;
 
     /**
      * Waits for this future until it is done, and rethrows the cause of the failure if this future
      * failed.  If the cause of the failure is a checked exception, it is wrapped with a new
-     * {@link ChannelException} before being thrown.
+     * {@link org.jboss.netty.channel.exception.ChannelException} before being thrown.
      */
     ChannelFuture syncUninterruptibly();
 

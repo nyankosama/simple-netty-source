@@ -18,6 +18,7 @@ package org.jboss.netty.channel;
 import java.net.SocketAddress;
 import java.util.Map;
 
+import org.jboss.netty.channel.event.*;
 import org.jboss.netty.util.internal.ConversionUtil;
 
 
@@ -43,8 +44,8 @@ import org.jboss.netty.util.internal.ConversionUtil;
  * Various event generation methods are provided to simplify the generation of
  * upstream events and downstream events.  It is always recommended to use the
  * event generation methods provided by {@link Channels} rather than calling
- * {@link ChannelHandlerContext#sendUpstream(ChannelEvent)} or
- * {@link ChannelHandlerContext#sendDownstream(ChannelEvent)} by yourself.
+ * {@link ChannelHandlerContext#sendUpstream(org.jboss.netty.channel.event.ChannelEvent)} or
+ * {@link ChannelHandlerContext#sendDownstream(org.jboss.netty.channel.event.ChannelEvent)} by yourself.
  * @apiviz.landmark
  */
 public final class Channels {

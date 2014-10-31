@@ -34,7 +34,7 @@ import org.jboss.netty.channel.socket.nio.NioSocketChannelConfig;
  * <li>the current state of the channel (e.g. is it open? is it connected?),</li>
  * <li>the {@linkplain ChannelConfig configuration parameters} of the channel (e.g. receive buffer size),</li>
  * <li>the I/O operations that the channel supports (e.g. read, write, connect, and bind), and</li>
- * <li>the {@link ChannelPipeline} which handles all {@linkplain ChannelEvent I/O events and requests}
+ * <li>the {@link ChannelPipeline} which handles all {@linkplain org.jboss.netty.channel.event.ChannelEvent I/O events and requests}
  *     associated with the channel.</li>
  * </ul>
  *
@@ -155,7 +155,7 @@ public interface Channel extends Comparable<Channel> {
     ChannelConfig getConfig();
 
     /**
-     * Returns the {@link ChannelPipeline} which handles {@link ChannelEvent}s
+     * Returns the {@link ChannelPipeline} which handles {@link org.jboss.netty.channel.event.ChannelEvent}s
      * associated with this channel.
      */
     ChannelPipeline getPipeline();
@@ -198,7 +198,7 @@ public interface Channel extends Comparable<Channel> {
      *         {@code null} if this channel is not connected.
      *         If this channel is not connected but it can receive messages
      *         from arbitrary remote addresses (e.g. {@link DatagramChannel},
-     *         use {@link MessageEvent#getRemoteAddress()} to determine
+     *         use {@link org.jboss.netty.channel.event.MessageEvent#getRemoteAddress()} to determine
      *         the origination of the received message as this method will
      *         return {@code null}.
      */

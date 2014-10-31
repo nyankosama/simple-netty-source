@@ -15,6 +15,9 @@
  */
 package org.jboss.netty.channel;
 
+import org.jboss.netty.channel.event.ChannelEvent;
+import org.jboss.netty.channel.exception.ChannelPipelineException;
+
 import static org.jboss.netty.channel.Channels.*;
 
 /**
@@ -29,10 +32,10 @@ public abstract class AbstractChannelSink implements ChannelSink {
     }
 
     /**
-     * Sends an {@link ExceptionEvent} upstream with the specified
+     * Sends an {@link org.jboss.netty.channel.event.ExceptionEvent} upstream with the specified
      * {@code cause}.
      *
-     * @param event the {@link ChannelEvent} which caused a
+     * @param event the {@link org.jboss.netty.channel.event.ChannelEvent} which caused a
      *              {@link ChannelHandler} to raise an exception
      * @param cause the exception raised by a {@link ChannelHandler}
      */

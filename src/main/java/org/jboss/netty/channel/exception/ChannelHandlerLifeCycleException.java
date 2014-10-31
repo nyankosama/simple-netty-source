@@ -13,41 +13,43 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.exception;
 
 /**
- * A {@link RuntimeException} which is thrown when an I/O operation fails.
+ * A {@link RuntimeException} which is thrown when a
+ * {@link org.jboss.netty.channel.LifeCycleAwareChannelHandler} throws an {@link Exception}
+ * in its handler methods.
  *
  * @apiviz.exclude
  */
-public class ChannelException extends RuntimeException {
+public class ChannelHandlerLifeCycleException extends RuntimeException {
 
-    private static final long serialVersionUID = 2908618315971075004L;
+    private static final long serialVersionUID = 8764799996088850672L;
 
     /**
      * Creates a new exception.
      */
-    public ChannelException() {
+    public ChannelHandlerLifeCycleException() {
     }
 
     /**
      * Creates a new exception.
      */
-    public ChannelException(String message, Throwable cause) {
+    public ChannelHandlerLifeCycleException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
      * Creates a new exception.
      */
-    public ChannelException(String message) {
+    public ChannelHandlerLifeCycleException(String message) {
         super(message);
     }
 
     /**
      * Creates a new exception.
      */
-    public ChannelException(Throwable cause) {
+    public ChannelHandlerLifeCycleException(Throwable cause) {
         super(cause);
     }
 }

@@ -21,7 +21,7 @@ import java.net.SocketAddress;
  * The current or future state of a {@link Channel}.
  * <p>
  * The state of a {@link Channel} is interpreted differently depending on the
- * {@linkplain ChannelStateEvent#getValue() value} of a {@link ChannelStateEvent}
+ * {@linkplain org.jboss.netty.channel.event.ChannelStateEvent#getValue() value} of a {@link org.jboss.netty.channel.event.ChannelStateEvent}
  * and the direction of the event in a {@link ChannelPipeline}:
  *
  * <table border="1" cellspacing="0" cellpadding="6">
@@ -86,7 +86,7 @@ import java.net.SocketAddress;
  * </tr>
  * </table>
  * <p>
- * To see how an event is interpreted further, please refer to {@link ChannelEvent}.
+ * To see how an event is interpreted further, please refer to {@link org.jboss.netty.channel.event.ChannelEvent}.
  */
 public enum ChannelState {
     /**

@@ -13,43 +13,43 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.jboss.netty.channel;
+package org.jboss.netty.channel.exception;
 
 /**
- * A {@link RuntimeException} which is thrown when a
- * {@link LifeCycleAwareChannelHandler} throws an {@link Exception}
- * in its handler methods.
+ * A {@link ChannelException} which is thrown when a {@link org.jboss.netty.channel.ChannelPipeline}
+ * failed to process a {@link org.jboss.netty.channel.event.ChannelEvent} or when a {@link org.jboss.netty.channel.ChannelPipelineFactory}
+ * failed to initialize a {@link org.jboss.netty.channel.ChannelPipeline}.
  *
  * @apiviz.exclude
  */
-public class ChannelHandlerLifeCycleException extends RuntimeException {
+public class ChannelPipelineException extends ChannelException {
 
-    private static final long serialVersionUID = 8764799996088850672L;
+    private static final long serialVersionUID = 3379174210419885980L;
 
     /**
-     * Creates a new exception.
+     * Creates a new instance.
      */
-    public ChannelHandlerLifeCycleException() {
+    public ChannelPipelineException() {
     }
 
     /**
-     * Creates a new exception.
+     * Creates a new instance.
      */
-    public ChannelHandlerLifeCycleException(String message, Throwable cause) {
+    public ChannelPipelineException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Creates a new exception.
+     * Creates a new instance.
      */
-    public ChannelHandlerLifeCycleException(String message) {
+    public ChannelPipelineException(String message) {
         super(message);
     }
 
     /**
-     * Creates a new exception.
+     * Creates a new instance.
      */
-    public ChannelHandlerLifeCycleException(Throwable cause) {
+    public ChannelPipelineException(Throwable cause) {
         super(cause);
     }
 }

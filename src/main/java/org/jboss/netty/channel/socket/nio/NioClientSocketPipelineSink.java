@@ -15,13 +15,13 @@
  */
 package org.jboss.netty.channel.socket.nio;
 
-import org.jboss.netty.channel.ChannelEvent;
+import org.jboss.netty.channel.event.ChannelEvent;
 import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelState;
-import org.jboss.netty.channel.ChannelStateEvent;
-import org.jboss.netty.channel.MessageEvent;
+import org.jboss.netty.channel.event.ChannelStateEvent;
+import org.jboss.netty.channel.event.MessageEvent;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
 
