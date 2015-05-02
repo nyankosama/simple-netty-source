@@ -4,3 +4,6 @@
 /license/
 /.idea/
 /*.iml
+.DS_Store
+.gitignore
+
