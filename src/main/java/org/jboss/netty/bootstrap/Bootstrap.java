@@ -15,11 +15,11 @@
  */
 package org.jboss.netty.bootstrap;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelHandler;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelPipelineFactory;
+import org.jboss.netty.channel.core.Channel;
+import org.jboss.netty.channel.core.ChannelFactory;
+import org.jboss.netty.channel.core.ChannelHandler;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelPipelineFactory;
 import org.jboss.netty.util.ExternalResourceReleasable;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static org.jboss.netty.channel.Channels.*;
+import static org.jboss.netty.channel.core.Channels.*;
 
 /**
  * A helper class which initializes a {@link Channel}.  This class provides
@@ -40,7 +40,7 @@ import static org.jboss.netty.channel.Channels.*;
  * and {@link ConnectionlessBootstrap} for client side, server-side, and
  * connectionless (e.g. UDP) channel initialization respectively.
  *
- * @apiviz.uses org.jboss.netty.channel.ChannelFactory
+ * @apiviz.uses org.jboss.netty.channel.skeleton.ChannelFactory
  */
 public class Bootstrap implements ExternalResourceReleasable {
 

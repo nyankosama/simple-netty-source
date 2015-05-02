@@ -16,7 +16,7 @@
 package org.jboss.netty.channel.socket;
 
 import org.jboss.netty.channel.exception.ChannelException;
-import org.jboss.netty.channel.DefaultChannelConfig;
+import org.jboss.netty.channel.core.impl.DefaultChannelConfig;
 import org.jboss.netty.util.internal.ConversionUtil;
 
 import java.net.Socket;

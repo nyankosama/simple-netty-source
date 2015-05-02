@@ -17,7 +17,7 @@ package org.jboss.netty.channel.socket;
 
 import java.net.InetSocketAddress;
 
-import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.core.Channel;
 
 /**
  * A TCP/IP socket {@link Channel} which was either accepted by

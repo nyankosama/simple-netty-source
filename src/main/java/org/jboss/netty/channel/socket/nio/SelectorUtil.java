@@ -24,16 +24,16 @@ import java.nio.channels.CancelledKeyException;
 import java.nio.channels.Selector;
 import java.util.concurrent.TimeUnit;
 
-final class SelectorUtil {
+public final class SelectorUtil {
     private static final InternalLogger logger =
         InternalLoggerFactory.getInstance(SelectorUtil.class);
 
-    static final int DEFAULT_IO_THREADS = Runtime.getRuntime().availableProcessors() * 2;
-    static final long DEFAULT_SELECT_TIMEOUT = 500;
-    static final long SELECT_TIMEOUT =
+    public static final int DEFAULT_IO_THREADS = Runtime.getRuntime().availableProcessors() * 2;
+    public static final long DEFAULT_SELECT_TIMEOUT = 500;
+    public static final long SELECT_TIMEOUT =
             SystemPropertyUtil.getLong("org.jboss.netty.selectTimeout", DEFAULT_SELECT_TIMEOUT);
-    static final long SELECT_TIMEOUT_NANOS = TimeUnit.MILLISECONDS.toNanos(SELECT_TIMEOUT);
-    static final boolean EPOLL_BUG_WORKAROUND =
+    public static final long SELECT_TIMEOUT_NANOS = TimeUnit.MILLISECONDS.toNanos(SELECT_TIMEOUT);
+    public static final boolean EPOLL_BUG_WORKAROUND =
             SystemPropertyUtil.getBoolean("org.jboss.netty.epollBugWorkaround", false);
 
     // Workaround for JDK NIO bug.
@@ -59,11 +59,11 @@ final class SelectorUtil {
         }
     }
 
-    static Selector open() throws IOException {
+    public static Selector open() throws IOException {
         return Selector.open();
     }
 
-    static int select(Selector selector) throws IOException {
+    public static int select(Selector selector) throws IOException {
         try {
             return selector.select(SELECT_TIMEOUT);
         } catch (CancelledKeyException e) {

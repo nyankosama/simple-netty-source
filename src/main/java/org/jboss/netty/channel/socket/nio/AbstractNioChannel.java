@@ -16,11 +16,11 @@
 package org.jboss.netty.channel.socket.nio;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.channel.AbstractChannel;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelSink;
+import org.jboss.netty.channel.core.impl.AbstractChannel;
+import org.jboss.netty.channel.core.Channel;
+import org.jboss.netty.channel.core.ChannelFactory;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelSink;
 import org.jboss.netty.channel.event.MessageEvent;
 import org.jboss.netty.channel.socket.nio.SocketSendBufferPool.SendBuffer;
 import org.jboss.netty.util.internal.ThreadLocalBoolean;
@@ -35,14 +35,14 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.jboss.netty.channel.Channels.*;
+import static org.jboss.netty.channel.core.Channels.*;
 
-abstract class AbstractNioChannel<C extends SelectableChannel & WritableByteChannel> extends AbstractChannel {
+public abstract class AbstractNioChannel<C extends SelectableChannel & WritableByteChannel> extends AbstractChannel {
 
     /**
      * The {@link AbstractNioWorker}.
      */
-    final AbstractNioWorker worker;
+    public final AbstractNioWorker worker;
 
     /**
      * Monitor object for synchronizing access to the {@link WriteRequestQueue}.
@@ -62,7 +62,7 @@ abstract class AbstractNioChannel<C extends SelectableChannel & WritableByteChan
     /**
      * Queue of write {@link MessageEvent}s.
      */
-    final Queue<MessageEvent> writeBufferQueue = new WriteRequestQueue();
+    public final Queue<MessageEvent> writeBufferQueue = new WriteRequestQueue();
 
     /**
      * Keeps track of the number of bytes that the {@link WriteRequestQueue} currently
@@ -90,7 +90,7 @@ abstract class AbstractNioChannel<C extends SelectableChannel & WritableByteChan
     private volatile InetSocketAddress localAddress;
     volatile InetSocketAddress remoteAddress;
 
-    final C channel;
+    public final C channel;
 
     protected AbstractNioChannel(
             Integer id, Channel parent, ChannelFactory factory, ChannelPipeline pipeline,

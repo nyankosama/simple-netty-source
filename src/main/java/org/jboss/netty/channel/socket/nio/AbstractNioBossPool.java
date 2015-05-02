@@ -49,7 +49,7 @@ public abstract class AbstractNioBossPool<E extends Boss>
         this(bossExecutor, bossCount, true);
     }
 
-    AbstractNioBossPool(Executor bossExecutor, int bossCount, boolean autoInit) {
+    public AbstractNioBossPool(Executor bossExecutor, int bossCount, boolean autoInit) {
         if (bossExecutor == null) {
             throw new NullPointerException("bossExecutor");
         }

@@ -15,23 +15,23 @@
  */
 package org.jboss.netty.bootstrap;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelConfig;
+import org.jboss.netty.channel.core.Channel;
+import org.jboss.netty.channel.core.ChannelConfig;
 import org.jboss.netty.channel.exception.ChannelException;
-import org.jboss.netty.channel.ChannelFactory;
+import org.jboss.netty.channel.core.ChannelFactory;
 import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.future.ChannelFutureListener;
-import org.jboss.netty.channel.ChannelHandler;
-import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelPipelineFactory;
+import org.jboss.netty.channel.core.ChannelHandler;
+import org.jboss.netty.channel.core.ChannelHandlerContext;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelPipelineFactory;
 import org.jboss.netty.channel.event.ChannelStateEvent;
-import org.jboss.netty.channel.Channels;
+import org.jboss.netty.channel.core.Channels;
 import org.jboss.netty.channel.event.ChildChannelStateEvent;
-import org.jboss.netty.channel.future.DefaultChannelFuture;
+import org.jboss.netty.channel.future.impl.DefaultChannelFuture;
 import org.jboss.netty.channel.event.ExceptionEvent;
-import org.jboss.netty.channel.ServerChannelFactory;
-import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
+import org.jboss.netty.channel.core.ServerChannelFactory;
+import org.jboss.netty.channel.core.impl.SimpleChannelUpstreamHandler;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import static org.jboss.netty.channel.Channels.*;
+import static org.jboss.netty.channel.core.Channels.*;
 
 /**
  * A helper class which creates a new server-side {@link Channel} and accepts

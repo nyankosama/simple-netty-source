@@ -15,8 +15,8 @@
  */
 package org.jboss.netty.util;
 
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelSink;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelSink;
 import org.jboss.netty.util.internal.SystemPropertyUtil;
 
 /**

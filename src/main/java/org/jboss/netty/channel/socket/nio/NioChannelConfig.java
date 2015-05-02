@@ -18,8 +18,8 @@ package org.jboss.netty.channel.socket.nio;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelConfig;
+import org.jboss.netty.channel.core.Channel;
+import org.jboss.netty.channel.core.ChannelConfig;
 
 /**
  * Special {@link ChannelConfig} sub-type which offers extra methods which are useful for NIO.

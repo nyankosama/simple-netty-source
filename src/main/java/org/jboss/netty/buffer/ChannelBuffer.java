@@ -15,6 +15,8 @@
  */
 package org.jboss.netty.buffer;
 
+import org.jboss.netty.buffer.impl.ChannelBuffers;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

@@ -15,9 +15,11 @@
  */
 package org.jboss.netty.channel.event;
 
+import org.jboss.netty.channel.core.Channel;
+
 /**
  * A {@link ChannelEvent} which represents the notification of the completion
- * of a write request on a {@link org.jboss.netty.channel.Channel}.  This event is for going upstream
+ * of a write request on a {@link Channel}.  This event is for going upstream
  * only.  Please refer to the {@link ChannelEvent} documentation to find out
  * what an upstream event and a downstream event are and what fundamental
  * differences they have.

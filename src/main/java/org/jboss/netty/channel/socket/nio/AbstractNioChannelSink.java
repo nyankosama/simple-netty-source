@@ -16,11 +16,11 @@
 
 package org.jboss.netty.channel.socket.nio;
 
-import org.jboss.netty.channel.AbstractChannelSink;
-import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.core.impl.AbstractChannelSink;
+import org.jboss.netty.channel.core.Channel;
 import org.jboss.netty.channel.event.ChannelEvent;
 import org.jboss.netty.channel.future.ChannelFuture;
-import org.jboss.netty.channel.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelPipeline;
 import org.jboss.netty.channel.socket.ChannelRunnableWrapper;
 
 public abstract class AbstractNioChannelSink extends AbstractChannelSink {

@@ -18,7 +18,7 @@ package org.jboss.netty.channel.socket;
 import java.net.Socket;
 import java.net.StandardSocketOptions;
 
-import org.jboss.netty.channel.ChannelConfig;
+import org.jboss.netty.channel.core.ChannelConfig;
 
 /**
  * A {@link ChannelConfig} for a {@link SocketChannel}.
