@@ -19,7 +19,7 @@ import java.net.ServerSocket;
 import java.net.SocketException;
 
 import org.jboss.netty.channel.exception.ChannelException;
-import org.jboss.netty.channel.DefaultServerChannelConfig;
+import org.jboss.netty.channel.core.impl.DefaultServerChannelConfig;
 import org.jboss.netty.util.internal.ConversionUtil;
 
 /**

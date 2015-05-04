@@ -18,10 +18,10 @@ package org.jboss.netty.channel.socket.nio;
 import java.net.Socket;
 import java.util.Map;
 
-import org.jboss.netty.channel.AdaptiveReceiveBufferSizePredictorFactory;
+import org.jboss.netty.channel.core.impl.AdaptiveReceiveBufferSizePredictorFactory;
 import org.jboss.netty.channel.exception.ChannelException;
-import org.jboss.netty.channel.ReceiveBufferSizePredictor;
-import org.jboss.netty.channel.ReceiveBufferSizePredictorFactory;
+import org.jboss.netty.channel.core.ReceiveBufferSizePredictor;
+import org.jboss.netty.channel.core.ReceiveBufferSizePredictorFactory;
 import org.jboss.netty.channel.socket.DefaultSocketChannelConfig;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;

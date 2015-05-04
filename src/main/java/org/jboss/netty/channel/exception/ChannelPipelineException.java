@@ -15,10 +15,14 @@
  */
 package org.jboss.netty.channel.exception;
 
+import org.jboss.netty.channel.event.ChannelEvent;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelPipelineFactory;
+
 /**
- * A {@link ChannelException} which is thrown when a {@link org.jboss.netty.channel.ChannelPipeline}
- * failed to process a {@link org.jboss.netty.channel.event.ChannelEvent} or when a {@link org.jboss.netty.channel.ChannelPipelineFactory}
- * failed to initialize a {@link org.jboss.netty.channel.ChannelPipeline}.
+ * A {@link ChannelException} which is thrown when a {@link ChannelPipeline}
+ * failed to process a {@link ChannelEvent} or when a {@link ChannelPipelineFactory}
+ * failed to initialize a {@link ChannelPipeline}.
  *
  * @apiviz.exclude
  */

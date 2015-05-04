@@ -2,10 +2,10 @@ package com.nyankosama.test;
 
 
 import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.Channels;
-import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelPipelineFactory;
+import org.jboss.netty.channel.core.Channels;
+import org.jboss.netty.channel.socket.nio.server.NioServerSocketChannelFactory;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 

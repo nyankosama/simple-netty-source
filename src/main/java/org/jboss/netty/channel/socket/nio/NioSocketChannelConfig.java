@@ -15,11 +15,11 @@
  */
 package org.jboss.netty.channel.socket.nio;
 
-import org.jboss.netty.channel.AdaptiveReceiveBufferSizePredictor;
-import org.jboss.netty.channel.AdaptiveReceiveBufferSizePredictorFactory;
-import org.jboss.netty.channel.ChannelConfig;
-import org.jboss.netty.channel.ReceiveBufferSizePredictor;
-import org.jboss.netty.channel.ReceiveBufferSizePredictorFactory;
+import org.jboss.netty.channel.core.impl.AdaptiveReceiveBufferSizePredictor;
+import org.jboss.netty.channel.core.impl.AdaptiveReceiveBufferSizePredictorFactory;
+import org.jboss.netty.channel.core.ChannelConfig;
+import org.jboss.netty.channel.core.ReceiveBufferSizePredictor;
+import org.jboss.netty.channel.core.ReceiveBufferSizePredictorFactory;
 import org.jboss.netty.channel.socket.SocketChannel;
 import org.jboss.netty.channel.socket.SocketChannelConfig;
 

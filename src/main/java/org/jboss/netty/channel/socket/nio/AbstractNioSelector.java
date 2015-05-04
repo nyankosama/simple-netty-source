@@ -15,7 +15,7 @@
  */
 package org.jboss.netty.channel.socket.nio;
 
-import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.core.Channel;
 import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.logging.InternalLogger;
@@ -40,7 +40,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-abstract class AbstractNioSelector implements NioSelector {
+public abstract class AbstractNioSelector implements NioSelector {
 
     private static final AtomicInteger nextId = new AtomicInteger();
 
@@ -91,11 +91,11 @@ abstract class AbstractNioSelector implements NioSelector {
     private final CountDownLatch shutdownLatch = new CountDownLatch(1);
     private volatile boolean shutdown;
 
-    AbstractNioSelector(Executor executor) {
+    public AbstractNioSelector(Executor executor) {
         this(executor, null);
     }
 
-    AbstractNioSelector(Executor executor, ThreadNameDeterminer determiner) {
+    public AbstractNioSelector(Executor executor, ThreadNameDeterminer determiner) {
         this.executor = executor;
         openSelector(determiner);
     }

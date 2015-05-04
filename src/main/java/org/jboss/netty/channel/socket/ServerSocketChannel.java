@@ -17,7 +17,7 @@ package org.jboss.netty.channel.socket;
 
 import java.net.InetSocketAddress;
 
-import org.jboss.netty.channel.ServerChannel;
+import org.jboss.netty.channel.core.ServerChannel;
 
 /**
  * A TCP/IP {@link ServerChannel} which accepts incoming TCP/IP connections.

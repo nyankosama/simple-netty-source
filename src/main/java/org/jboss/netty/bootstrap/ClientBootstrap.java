@@ -15,15 +15,15 @@
  */
 package org.jboss.netty.bootstrap;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelConfig;
-import org.jboss.netty.channel.ChannelFactory;
+import org.jboss.netty.channel.core.Channel;
+import org.jboss.netty.channel.core.ChannelConfig;
+import org.jboss.netty.channel.core.ChannelFactory;
 import org.jboss.netty.channel.future.ChannelFuture;
-import org.jboss.netty.channel.ChannelHandler;
-import org.jboss.netty.channel.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelHandler;
+import org.jboss.netty.channel.core.ChannelPipeline;
 import org.jboss.netty.channel.exception.ChannelPipelineException;
-import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.Channels;
+import org.jboss.netty.channel.core.ChannelPipelineFactory;
+import org.jboss.netty.channel.core.Channels;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;

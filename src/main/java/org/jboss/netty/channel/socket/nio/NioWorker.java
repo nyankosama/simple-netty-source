@@ -17,10 +17,15 @@ package org.jboss.netty.channel.socket.nio;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBufferFactory;
-import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.core.Channel;
 import org.jboss.netty.channel.exception.ChannelException;
 import org.jboss.netty.channel.future.ChannelFuture;
-import org.jboss.netty.channel.ReceiveBufferSizePredictor;
+import org.jboss.netty.channel.core.ReceiveBufferSizePredictor;
+import org.jboss.netty.channel.socket.nio.AbstractNioChannel;
+import org.jboss.netty.channel.socket.nio.AbstractNioWorker;
+import org.jboss.netty.channel.socket.nio.NioSocketChannel;
+import org.jboss.netty.channel.socket.nio.SocketReceiveBufferAllocator;
+import org.jboss.netty.channel.socket.nio.client.NioClientSocketChannel;
 import org.jboss.netty.util.ThreadNameDeterminer;
 
 import java.io.IOException;
@@ -31,7 +36,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.SocketChannel;
 import java.util.concurrent.Executor;
 
-import static org.jboss.netty.channel.Channels.*;
+import static org.jboss.netty.channel.core.Channels.*;
 
 public class NioWorker extends AbstractNioWorker {
 

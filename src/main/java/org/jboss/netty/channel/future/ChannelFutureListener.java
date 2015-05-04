@@ -15,11 +15,13 @@
  */
 package org.jboss.netty.channel.future;
 
+import org.jboss.netty.channel.core.Channel;
+
 import java.util.EventListener;
 
 /**
  * Listens to the result of a {@link ChannelFuture}.  The result of the
- * asynchronous {@link org.jboss.netty.channel.Channel} I/O operation is notified once this listener
+ * asynchronous {@link Channel} I/O operation is notified once this listener
  * is added by calling {@link ChannelFuture#addListener(ChannelFutureListener)}.
  *
  * <h3>Return the control to the caller quickly</h3>
@@ -33,7 +35,7 @@ import java.util.EventListener;
 public interface ChannelFutureListener extends EventListener {
 
     /**
-     * A {@link ChannelFutureListener} that closes the {@link org.jboss.netty.channel.Channel} which is
+     * A {@link ChannelFutureListener} that closes the {@link Channel} which is
      * associated with the specified {@link ChannelFuture}.
      */
     ChannelFutureListener CLOSE = new ChannelFutureListener() {
@@ -43,7 +45,7 @@ public interface ChannelFutureListener extends EventListener {
     };
 
     /**
-     * A {@link ChannelFutureListener} that closes the {@link org.jboss.netty.channel.Channel} when the
+     * A {@link ChannelFutureListener} that closes the {@link Channel} when the
      * operation ended up with a failure or cancellation rather than a success.
      */
     ChannelFutureListener CLOSE_ON_FAILURE = new ChannelFutureListener() {

@@ -15,9 +15,9 @@
  */
 package org.jboss.netty.channel.socket;
 
-import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ServerChannelFactory;
+import org.jboss.netty.channel.core.ChannelFactory;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ServerChannelFactory;
 
 /**
  * A {@link ChannelFactory} which creates a {@link ServerSocketChannel}.

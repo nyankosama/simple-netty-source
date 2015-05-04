@@ -1,9 +1,9 @@
 package com.nyankosama.test;
 
-import org.jboss.netty.channel.ChannelHandlerContext;
+import org.jboss.netty.channel.core.ChannelHandlerContext;
 import org.jboss.netty.channel.event.ChannelStateEvent;
 import org.jboss.netty.channel.event.MessageEvent;
-import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
+import org.jboss.netty.channel.core.impl.SimpleChannelUpstreamHandler;
 
 /**
  * Created by hlr@superid.cn on 2014/8/15.

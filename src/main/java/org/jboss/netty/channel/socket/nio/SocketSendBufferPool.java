@@ -16,9 +16,9 @@
 package org.jboss.netty.channel.socket.nio;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.CompositeChannelBuffer;
-import org.jboss.netty.channel.DefaultFileRegion;
-import org.jboss.netty.channel.FileRegion;
+import org.jboss.netty.buffer.impl.CompositeChannelBuffer;
+import org.jboss.netty.channel.core.impl.DefaultFileRegion;
+import org.jboss.netty.channel.core.FileRegion;
 import org.jboss.netty.util.ExternalResourceReleasable;
 import org.jboss.netty.util.internal.ByteBufferUtil;
 
@@ -30,7 +30,7 @@ import java.nio.channels.DatagramChannel;
 import java.nio.channels.GatheringByteChannel;
 import java.nio.channels.WritableByteChannel;
 
-final class SocketSendBufferPool implements ExternalResourceReleasable {
+public final class SocketSendBufferPool implements ExternalResourceReleasable {
 
     private static final SendBuffer EMPTY_BUFFER = new EmptySendBuffer();
 
@@ -41,7 +41,7 @@ final class SocketSendBufferPool implements ExternalResourceReleasable {
     private PreallocationRef poolHead;
     private Preallocation current = new Preallocation(DEFAULT_PREALLOCATION_SIZE);
 
-    SendBuffer acquire(Object message) {
+    public SendBuffer acquire(Object message) {
         if (message instanceof ChannelBuffer) {
             return acquire((ChannelBuffer) message);
         }
@@ -166,7 +166,7 @@ final class SocketSendBufferPool implements ExternalResourceReleasable {
         }
     }
 
-    interface SendBuffer {
+    public interface SendBuffer {
         boolean finished();
         long writtenBytes();
         long totalBytes();

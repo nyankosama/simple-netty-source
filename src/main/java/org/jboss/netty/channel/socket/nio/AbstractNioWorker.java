@@ -15,7 +15,7 @@
  */
 package org.jboss.netty.channel.socket.nio;
 
-import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.core.Channel;
 import org.jboss.netty.channel.future.ChannelFuture;
 import org.jboss.netty.channel.event.MessageEvent;
 import org.jboss.netty.channel.socket.Worker;
@@ -38,9 +38,9 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
-import static org.jboss.netty.channel.Channels.*;
+import static org.jboss.netty.channel.core.Channels.*;
 
-abstract class AbstractNioWorker extends AbstractNioSelector implements Worker {
+public abstract class AbstractNioWorker extends AbstractNioSelector implements Worker {
 
     protected final SocketSendBufferPool sendBufferPool = new SocketSendBufferPool();
 
@@ -123,7 +123,7 @@ abstract class AbstractNioWorker extends AbstractNioSelector implements Worker {
         }
     }
 
-    void writeFromUserCode(final AbstractNioChannel<?> channel) {
+    public void writeFromUserCode(final AbstractNioChannel<?> channel) {
         if (!channel.isConnected()) {
             cleanUpWriteBuffer(channel);
             return;
@@ -344,7 +344,7 @@ abstract class AbstractNioWorker extends AbstractNioSelector implements Worker {
         }
     }
 
-    protected void close(AbstractNioChannel<?> channel, ChannelFuture future) {
+    public void close(AbstractNioChannel<?> channel, ChannelFuture future) {
         boolean connected = channel.isConnected();
         boolean bound = channel.isBound();
         boolean iothread = isIoThread(channel);
@@ -447,7 +447,7 @@ abstract class AbstractNioWorker extends AbstractNioSelector implements Worker {
         }
     }
 
-    void setInterestOps(final AbstractNioChannel<?> channel, final ChannelFuture future, final int interestOps) {
+    public void setInterestOps(final AbstractNioChannel<?> channel, final ChannelFuture future, final int interestOps) {
         boolean iothread = isIoThread(channel);
         if (!iothread) {
             channel.getPipeline().execute(new Runnable() {

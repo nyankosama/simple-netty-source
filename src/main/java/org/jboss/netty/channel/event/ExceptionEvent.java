@@ -15,9 +15,11 @@
  */
 package org.jboss.netty.channel.event;
 
+import org.jboss.netty.channel.core.ChannelHandler;
+
 /**
  * A {@link ChannelEvent} which represents the notification of an exception
- * raised by a {@link org.jboss.netty.channel.ChannelHandler} or an I/O thread.  This event is for
+ * raised by a {@link ChannelHandler} or an I/O thread.  This event is for
  * going upstream only.  Please refer to the {@link ChannelEvent} documentation
  * to find out what an upstream event and a downstream event are and what
  * fundamental differences they have.

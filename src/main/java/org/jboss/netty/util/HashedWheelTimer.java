@@ -15,7 +15,7 @@
  */
 package org.jboss.netty.util;
 
-import org.jboss.netty.channel.ChannelPipelineFactory;
+import org.jboss.netty.channel.core.ChannelPipelineFactory;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
 import org.jboss.netty.util.internal.DetectionUtil;

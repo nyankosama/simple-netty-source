@@ -15,11 +15,11 @@
  */
 package org.jboss.netty.channel.socket.nio;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFactory;
+import org.jboss.netty.channel.core.Channel;
+import org.jboss.netty.channel.core.ChannelFactory;
 import org.jboss.netty.channel.future.ChannelFuture;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelSink;
+import org.jboss.netty.channel.core.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelSink;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -68,12 +68,12 @@ public class NioSocketChannel extends AbstractNioChannel<SocketChannel>
         return state == ST_CONNECTED;
     }
 
-    final void setBound() {
+    public final void setBound() {
         assert state == ST_OPEN : "Invalid state: " + state;
         state = ST_BOUND;
     }
 
-    final void setConnected() {
+    public final void setConnected() {
         if (state != ST_CLOSED) {
             state = ST_CONNECTED;
         }

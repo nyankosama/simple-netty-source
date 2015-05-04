@@ -15,8 +15,8 @@
  */
 package org.jboss.netty.channel.socket;
 
-import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelPipeline;
+import org.jboss.netty.channel.core.ChannelFactory;
+import org.jboss.netty.channel.core.ChannelPipeline;
 
 /**
  * A {@link ChannelFactory} which creates a client-side {@link SocketChannel}.

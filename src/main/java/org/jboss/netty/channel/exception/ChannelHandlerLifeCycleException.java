@@ -15,9 +15,11 @@
  */
 package org.jboss.netty.channel.exception;
 
+import org.jboss.netty.channel.core.LifeCycleAwareChannelHandler;
+
 /**
  * A {@link RuntimeException} which is thrown when a
- * {@link org.jboss.netty.channel.LifeCycleAwareChannelHandler} throws an {@link Exception}
+ * {@link LifeCycleAwareChannelHandler} throws an {@link Exception}
  * in its handler methods.
  *
  * @apiviz.exclude
